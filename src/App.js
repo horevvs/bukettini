@@ -1,12 +1,7 @@
 
 import './App.css';
 
-
 import React, { useEffect, useState } from 'react';
-
-
-
-
 
 
 function App() {
@@ -19,16 +14,13 @@ function App() {
     }, 1000);
   }, []);
 
-
   return (
     <div className="App">
       {loading ? (
-        <div className='bodyloader'><span class="loader"> </span></div>
+        <div className='bodyloader'><span class="loader">      </span></div>
       ) : (
-        <div className='dd' >
-
-        <img src='' ></>
-
+        <div className='dd'>
+           
         </div>
       )}
     </div>
