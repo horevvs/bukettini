@@ -1,8 +1,9 @@
 
 import './App.css';
-
+import logotip from './images/logotip.svg';
+import MainComponent from './MainComponent';
 import React, { useEffect, useState } from 'react';
-
+import MainPageLogotip from './images/MainPageLogotip.png';
 
 function App() {
 
@@ -11,17 +12,15 @@ function App() {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 1000);
+    }, 2000);
   }, []);
 
   return (
     <div className="App">
       {loading ? (
-        <div className='bodyloader'><span class="loader">      </span></div>
+        <div className='bodyloader '><span class="loader">  <img src={MainPageLogotip} width='300px' height='300px' />    </span></div>
       ) : (
-        <div className='dd'>
-           
-        </div>
+       <MainComponent/>
       )}
     </div>
   )
