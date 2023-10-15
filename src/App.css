@@ -93,71 +93,51 @@
     transform: rotate(360deg);
   } }
 
+  .transformtext{
+    font-size: 22px;
+    line-height: 25px;
+  }
 
-  
-div[class*=container] {
-  text-align: center;
-  width: 180px;
-  height: 33%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.container-1 { background: #d39f9f; }
-
-
-/*
- BUTTON STYLING
-*/
-
-.btn {
-  position: relative;
-  color: white;
-  width: 256px;
-  height: 64px;
-  line-height: 64px;
-  transition: all 0.3s;
-  span {
-    transition: all 0.3s;
+  button{
+    width: 170px;
+    background-color:#282c34;
+    height: 70px;
+    line-height: 40px;
+    font-family: sans-serif;
+    color: white;
+    border: 4px solid white;
+    letter-spacing: 3px;
+    text-align: center;
+    position: relative;
    
   }
-}
 
-.btn::before, .btn::after {
-  content: '';
-  position: absolute;
-  transition: all 1.0s;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-
-.btn-one::before {
-	
-	z-index: 1;
-  opacity: 0;
-  background: rgba(110, 77, 77, 0.685);
-  transform: scale(0.1, 1);
-}
-
-.btn-one:hover::before {
-  opacity: 1;
-  transform: scale(1, 1);
-}
-
-.btn-one::after {
-  transition: all 0.3s;
-  border: 2px solid rgba(255, 255, 255, 0.5);
-}
-
-.btn-one:hover::after {
-  transform: scale(1, .1);
-  opacity: 0;
-}
-
-
-
+  button span{
+    position: relative;
+    z-index: 2;
+  }
   
+  button:after{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: white;
+    transition:  all 0.5s;
+    
+  }
+  
+  button:hover{
+    letter-spacing: 5px;
+    color:#282c34;
+    transform: scalex(115%);
+    transition:  all 1.2s;
+    border: 4px solid #282c34;
+  }
+  
+  button:hover:after{
+    width: 100%;
+  }
+

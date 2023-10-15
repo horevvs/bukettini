@@ -26,48 +26,33 @@ function MainComponent() {
 
 
             <div className='mainbackground '>
-                <div className='d-flex flex-column py-2' >
-                    <div class="py-2 px-5">
-                        <div class="container-1">
-                            <div class="btn btn-one">
-                                <span>Мужское</span>
-                            </div>
-                        </div>
+
+
+                <div className='d-flex flex-column '>
+
+                    <div class="wrapper px-5 py-2">
+                        <button className='transformtext'> <span>Мужское</span></button>
+                    </div>
+                    <div class="wrapper px-5 py-2">
+                        <button className='transformtext'> <span>Женское</span></button>
+                    </div>
+                    <div class="wrapper px-5 py-2">
+                        <button className='transformtext'><span>Разное</span></button>
+                    </div>
+                    <div class="wrapper px-5 py-2">
+                        <button className='transformtext'> <span>Товар в наличии</span></button>
+                    </div>
+                    <div class="wrapper px-5 py-2">
+                        <button className='transformtext'><span>Обратная связь</span></button>
                     </div>
 
-                    <div class="py-2 px-5">
-                        <div class="container-1">
-                            <div class="btn btn-one">
-                                <span>Женское</span>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="py-2 px-5">
-                        <div class="container-1">
-                            <div class="btn btn-one">
-                                <span>Разное</span>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="py-2 px-5">
-                        <div class="container-1">
-                            <div class="btn btn-one">
-                                <span>Заказать</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="py-2 px-5">
-                        <div class="container-1">
-                            <div class="btn btn-one">
-                                <span>Написать</span>
-                            </div>
-                        </div>
-                    </div>
 
                 </div>
+
+
+
             </div>
 
 
