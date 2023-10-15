@@ -135,10 +135,16 @@
     transform: scalex(115%);
     transition:  all 1.2s;
     border: 4px solid #282c34;
-   
   }
   
   button:hover:after{
     width: 100%;
   }
 
+.sliderbox{
+  width:600px;
+  height: 200px;
+  
+}
+
+ 

@@ -4,11 +4,11 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import MainPageLogotip from './images/MainPageLogotip.png';
-
+import Slide from './Slide';
 import { BsFillBasketFill } from "react-icons/bs";
 import { AiFillInstagram } from "react-icons/ai";
 import { FaTelegram } from "react-icons/fa";
-import Button from 'react-bootstrap/Button';
+
 
 
 function MainComponent() {
@@ -17,7 +17,7 @@ function MainComponent() {
     return (
         <div className="App">
             <div className="header d-flex  justify-content-between">
-                <img src={MainPageLogotip} width='80px' height='80px' className='animation' />
+                <img src={MainPageLogotip} width='80px' height='80px' className='animation' alt />
                 <span className='forspan'> Bukettini - лучший подарок человеку, у которого есть   все! </span>
                 <div className='basket' >
                     <BsFillBasketFill />
@@ -25,11 +25,8 @@ function MainComponent() {
             </div>
 
 
-            <div className='mainbackground '>
-
-
+            <div className='mainbackground  d-flex justify-content-between'>
                 <div className='d-flex flex-column '>
-
                     <div class="wrapper px-5 py-2">
                         <button className='transformtext'> <span>Мужское</span></button>
                     </div>
@@ -45,10 +42,10 @@ function MainComponent() {
                     <div class="wrapper px-5 py-2">
                         <button className='transformtext'><span>Обратная связь</span></button>
                     </div>
+                </div>
 
-
-
-
+                <div className='sliderbox mx-5 my-2'>
+                     <Slide /> 
                 </div>
 
 
