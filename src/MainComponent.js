@@ -27,7 +27,7 @@ function MainComponent() {
 
             <div className='mainbackground   '>
                 <div className='d-flex '>
-                    <div className='d-flex flex-column '>
+                    <div className='d-flex flex-md-column  flex-wrap fustify justify-content-center'>
                         <div class=" px-5 py-3">
                             <button className='transformtext '> <span>Мужское</span></button>
                         </div>

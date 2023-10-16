@@ -27,7 +27,7 @@
   @media (max-width: 490px) {
 
     margin-top: 3%;
-  
+
   }
 }
 
@@ -43,14 +43,10 @@
   z-index: 500;
 }
 
-.hide{
-
-  @media (max-width: 400px) {
-
+.hide {
+  @media (max-width: 770px) {
     display: none;
   }
-
-
 }
 
 
@@ -65,16 +61,17 @@
   z-index: 500;
 }
 
-.mediabtn{
+.mediabtn {
   @media (max-width: 1000px) {
-   display: block;
-   float:left
+    display: block;
+    float: left
   }
 }
 
 
 .forspan {
   margin-top: 3%;
+
   @media (max-width: 1024px) {
     margin-top: 3%;
     margin-left: 10%;
@@ -193,10 +190,7 @@ button {
 }
 
 
-@media (max-width: 500px) {
-
-
-}
+@media (max-width: 500px) {}
 
 button span {
   position: relative;
