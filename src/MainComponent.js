@@ -18,39 +18,45 @@ function MainComponent() {
         <div className="App">
             <div className="header d-flex  justify-content-between">
                 <img src={MainPageLogotip} width='80px' height='80px' className='animation' alt />
-                <span className='forspan'> Bukettini - лучший подарок человеку, у которого есть   все! </span>
+                <span className='forspan'> Bukettini - лучший подарок человеку, у которого есть все! </span>
                 <div className='basket' >
                     <BsFillBasketFill />
                 </div>
             </div>
 
 
-            <div className='mainbackground  d-flex justify-content-between'>
-                <div className='d-flex flex-column '>
-                    <div class="wrapper px-5 py-2">
-                        <button className='transformtext'> <span>Мужское</span></button>
+            <div className='mainbackground   '>
+                <div className='d-flex '>
+                    <div className='d-flex flex-column '>
+                        <div class=" px-5 py-3">
+                            <button className='transformtext '> <span>Мужское</span></button>
+                        </div>
+                        <div class=" px-5 py-3">
+                            <button className='transformtext '> <span>Женское</span></button>
+                        </div>
+                        <div class=" px-5 py-3">
+                            <button className='transformtext '><span>Разное</span></button>
+                        </div>
+                        <div class=" px-5 py-3">
+                            <button className='transformtext '> <span>Товар в наличии</span></button>
+                        </div>
+                        <div class="px-5 py-3">
+                            <button className='transformtext '><span>Обратная связь</span></button>
+                        </div>
                     </div>
-                    <div class="wrapper px-5 py-2">
-                        <button className='transformtext'> <span>Женское</span></button>
+
+                    <div className='mx-5 my-2  hide '>
+                        <Slide /> 
                     </div>
-                    <div class="wrapper px-5 py-2">
-                        <button className='transformtext'><span>Разное</span></button>
-                    </div>
-                    <div class="wrapper px-5 py-2">
-                        <button className='transformtext'> <span>Товар в наличии</span></button>
-                    </div>
-                    <div class="wrapper px-5 py-2">
-                        <button className='transformtext'><span>Обратная связь</span></button>
-                    </div>
+
+
                 </div>
-
-                <div className='sliderbox mx-5 my-2'>
-                     <Slide /> 
-                </div>
-
-
+                <div className='  bg-dark'>ffffffffff</div>
 
             </div>
+
+
+
 
 
 
