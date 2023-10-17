@@ -12,37 +12,43 @@ function Slide() {
     <Carousel data-bs-theme="dark">
       <Carousel.Item>
         <img
-          className="d-block w-100 h-100"
+          className="d-block w-100 border border-secondary"
           src={slide1}
           alt="First slide"
         />
         <Carousel.Caption>
-          <h5>First slide label</h5>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <div class=" px-5 py-3  ">
+            <p> Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            <a className="s12">Заказать</a>
+          </div>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
-          className="d-block w-100"
+          className="d-block w-100 border border-secondary"
           src={slide2}
           alt="Second slide"
         />
         <Carousel.Caption>
-          <h5>Second slide label</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <div class=" px-5 py-3">
+            <div class=" px-5 py-3">
+              <p> Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+              <a className="s12">Заказать</a>
+            </div>
+          </div>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
-          className="d-block w-100"
+          className="d-block w-100 border border-secondary"
           src={slide3}
           alt="Third slide"
         />
         <Carousel.Caption>
-          <h5>Third slide label</h5>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
+          <div class=" px-5 py-3">
+            <p> Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            <a className="s12">Заказать</a>
+          </div>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>

@@ -1,0 +1,17 @@
+[
+    {
+        "id": 0,
+        "image": "mens/1.jpg",
+        "name": "food1"
+         
+    },
+    {
+        "id": 1,
+        "image": "/mens/2.jpg",
+        "name": "food2"
+         
+    }
+   
+]
+
+
