@@ -2,14 +2,135 @@
     {
         "id": 0,
         "image": "mens/1.jpg",
+        "price": 200, 
         "name": "food1"
          
     },
     {
         "id": 1,
         "image": "/mens/2.jpg",
+        "price": 200, 
         "name": "food2"
          
+    },
+    {
+        "id": 2,
+        "image": "/mens/3.jpg",
+        "price": 200, 
+        "name": "food3"
+         
+    },
+    {
+        "id": 3,
+        "image": "/mens/4.jpg",
+        "price": 200, 
+        "name": "food4"
+    },
+    {
+        "id": 4,
+        "image": "/mens/5.jpg",
+        "price": 200, 
+        "name": "food5" 
+    },
+    {
+        "id": 5,
+        "image": "/mens/6.jpg",
+        "price": 200, 
+        "name": "food6" 
+    },
+    {
+        "id": 6,
+        "image": "/mens/7.jpg",
+        "price": 200, 
+        "name": "food7" 
+    },
+    {
+        "id": 7,
+        "image": "/mens/8.jpg",
+        "price": 200, 
+        "name": "food8" 
+    },
+    {
+        "id": 8,
+        "image": "/mens/9.jpg",
+        "price": 200, 
+        "name": "food9" 
+    },
+    {
+        "id": 9,
+        "image": "/mens/10.jpg",
+        "price": 200, 
+        "name": "food10" 
+    },
+    {
+        "id": 10,
+        "image": "/mens/11.jpg",
+        "price": 200, 
+        "name": "food11" 
+    },
+    {
+        "id": 11,
+        "image": "/mens/12.jpg",
+        "price": 200, 
+        "name": "food12" 
+    },
+    {
+        "id": 12,
+        "image": "/mens/13.jpg",
+        "name": "food13" 
+    },
+    {
+        "id": 13,
+        "image": "/mens/14.jpg",
+        "price": 200, 
+        "name": "food14" 
+    },
+    {
+        "id": 14,
+        "image": "/mens/15.jpg",
+        "price": 200, 
+        "name": "food15" 
+    },
+    {
+        "id": 15,
+        "image": "/mens/16.jpg",
+        "price": 200, 
+        "name": "food16" 
+    },
+    {
+        "id": 16,
+        "image": "/mens/17.jpg",
+        "price": 200, 
+        "name": "food17" 
+    },
+    {
+        "id": 17,
+        "image": "/mens/18.jpg",
+        "name": "food18" 
+    },
+    {
+        "id": 18,
+        "image": "/mens/19.jpg",
+        "price": 200, 
+        "name": "food19" 
+    },
+    {
+        "id": 19,
+        "image": "/mens/20.jpg",
+        "name": "food20" 
+    },
+    {
+        "id": 20,
+        "image": "/mens/21.jpg",
+        "price": 200, 
+        "name": "food21" 
+    },
+    {
+        "id": 20,
+        "image": "/mens/22.jpg",
+        "price": 200, 
+        "name": "food22", 
+        "gpoup":"men" 
     }
    
 ]

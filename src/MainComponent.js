@@ -16,21 +16,25 @@ import catalog from "./catalog.json";
 function MainComponent() {
     const [state, setState] = useState(catalog);
 
+    let massiv = Array(catalog.length)
+    massiv.fill(false)
 
+    const [show, setShow] = useState(massiv);
+    const [show2, setShow2] = useState([false, false, false]);
 
-    const [show, setShow] = useState([false, false]);
-    const handleClose = () => setShow(false);
+    const handleClose = (id) => {
+
+        show2[id] = false
+        setShow(show2)
+        console.log(id)
+        console.log(massiv)
+        setShow(false)
+    }
 
 
     const handleShow = (id) => {
-
-//         let a =show.map((item) => {
-
-// if (item=id)
-
-//         })
-
-        alert(id)
+        show2[id] = true
+        setShow(show2)
         console.log(show)
 
     };
@@ -79,15 +83,14 @@ function MainComponent() {
                                 <h5 class="card-title">{item.name}</h5>
                                 <>
                                     <Button variant="dark" onClick={() => handleShow(item.id)}>
-                                        Launch demo modal
+                                        Посмотреть товар
                                     </Button>
                                     <Modal show={show[item.id]} onHide={() => handleClose(item.id)} animation={false}>
-                                        <Modal.Header closeButton>
-                                        </Modal.Header>
-                                        <Modal.Body>1</Modal.Body>
+                                        <Modal.Body>{item.name} </Modal.Body>
+                                        <img src={item.image} class="card-img-top img-fluid "  alt="..." />
                                         <Modal.Footer>
-                                            <Button variant="secondary" onClick={handleClose}>
-                                                Close
+                                            <Button variant="secondary" onClick={() => handleClose(item.id)}>
+                                            &#10006;
                                             </Button>
                                         </Modal.Footer>
                                     </Modal>
