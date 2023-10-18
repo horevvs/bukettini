@@ -10,11 +10,14 @@ import { FaTelegram } from "react-icons/fa";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import catalog from "./catalog.json";
+import Basket from './Basket';
 
 
 
 function MainComponent() {
     const [state, setState] = useState(catalog);
+    const [basketshow, setbasketshow] = useState(true);
+    const [baskethide, setbaskethide] = useState(false);
 
     let massiv = Array(catalog.length)
     massiv.fill(false)
@@ -23,11 +26,8 @@ function MainComponent() {
     const [show2, setShow2] = useState([false, false, false]);
 
     const handleClose = (id) => {
-
         show2[id] = false
         setShow(show2)
-        console.log(id)
-        console.log(massiv)
         setShow(false)
     }
 
@@ -35,8 +35,10 @@ function MainComponent() {
     const handleShow = (id) => {
         show2[id] = true
         setShow(show2)
-        console.log(show)
+    };
 
+    const handleClosebasket = () => {
+        return setbaskethide(!baskethide)
     };
 
 
@@ -45,9 +47,20 @@ function MainComponent() {
             <div className="header d-flex  justify-content-between">
                 <img src={MainPageLogotip} width='80px' height='80px' className='animation' alt='' />
                 <span className='forspan'> Bukettini - лучший подарок человеку, у которого есть все! </span>
-                <div className='basket' >
-                    <BsFillBasketFill />
+
+                <div className='basket'>
+                    <BsFillBasketFill onClick={handleClosebasket} />
+                    <div className={baskethide ? "baskethide" : " "}  >
+                        {basketshow ? (<div className='mr-5 emptyBasket'>  В корзине пусто</div>)
+                            : (
+                                <Basket  className=''/>
+                            )}
+                    </div>
+
+
                 </div>
+
+
             </div>
 
 
@@ -79,20 +92,12 @@ function MainComponent() {
                     {state.map((item) => {
                         return (
                             <div key={item.id} class="card cardstyle mx-2 my-2" >
-                                <img src={item.image} class="card-img-top " alt="..." />
+                                <img onClick={() => handleShow(item.id)} src={item.image} class="card-img-top cursor " alt="..." />
                                 <h5 class="card-title">{item.name}</h5>
                                 <>
-                                    <Button variant="dark" onClick={() => handleShow(item.id)}>
-                                        Посмотреть товар
-                                    </Button>
-                                    <Modal show={show[item.id]} onHide={() => handleClose(item.id)} animation={false}>
-                                        <Modal.Body>{item.name} </Modal.Body>
-                                        <img src={item.image} class="card-img-top img-fluid "  alt="..." />
-                                        <Modal.Footer>
-                                            <Button variant="secondary" onClick={() => handleClose(item.id)}>
-                                            &#10006;
-                                            </Button>
-                                        </Modal.Footer>
+                                    <Modal show={show[item.id]} onHide={() => handleClose(item.id)} >
+                                        <img onClick={() => handleClose(item.id)} src={item.image} class="card-img-top img-fluid  cursor" alt="..." />
+                                        <Button onClick={() => handleClose(item.id)} className='bg-dark'> Добавить в корзину </Button>
                                     </Modal>
                                 </>
                             </div>

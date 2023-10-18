@@ -17,25 +17,44 @@
   height: 100vh;
   background-size: cover;
 }
+.emptyBasket{
+  width: 100px;
+  height: 100px;
+  background-color: brown;
+  position: relative;
+  right: 100px;
+  
+
+}
+
+
+.baskethide{
+  display: none;
+}
 
 .basket {
   margin-top: 2%;
   margin-right: 3%;
   width: 30px;
   height: 50px;
+  cursor: pointer;
 
   @media (max-width: 490px) {
-
     margin-top: 3%;
-
   }
 }
 
-/* a:hover{
-  cursor: pointer;
-  transform: scale(1.2);
- 
+.cursor {
+  cursor: pointer
+}
+
+/* .basket {
+  width: 100px;
+  height: 100px;
+  background-color: brown;
 } */
+
+
 
 .footer {
   background-color: #2B2828;
@@ -94,7 +113,7 @@
   }
 }
 
-.cardstyle{
+.cardstyle {
   width: 18rem;
   height: 100px
 }
@@ -239,7 +258,7 @@
   background-size: 0 .063em, 100% .063em;
   color: #282c34;
   padding-bottom: .188em;
-  transition: background-size .5s, transform .8s ;
+  transition: background-size .5s, transform .8s;
 }
 
 .s12:hover {
@@ -248,7 +267,9 @@
   cursor: pointer;
   transform: scale(1.2);
 }
-.scroll{
-  height: 50vh; /* Высота блока */
+
+.scroll {
+  height: 50vh;
+  /* Высота блока */
   overflow-y: scroll;
 }
