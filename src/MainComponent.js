@@ -51,7 +51,7 @@ function MainComponent() {
                 <div className='basket'>
                     <BsFillBasketFill onClick={handleClosebasket} />
                     <div className={baskethide ? "baskethide" : " "}  >
-                        {basketshow ? (<div className='mr-5 emptyBasket'>  В корзине пусто</div>)
+                        {basketshow ? (<div className='mr-5 emptyBasket'>  Пусто</div>)
                             : (
                                 <Basket  className=''/>
                             )}
