@@ -18,9 +18,9 @@ function App() {
   return (
     <div className="App">
       {loading ? (
-        <div className='bodyloader '><span class="loader">  <img src={MainPageLogotip} width='300px' height='300px' alt='' />    </span></div>
+        <div className='bodyloader '><span className="loader">  <img src={MainPageLogotip} width='300px' height='300px' alt='' />    </span></div>
       ) : (
-       <MainComponent/>
+        <MainComponent />
       )}
     </div>
   )

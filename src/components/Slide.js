@@ -1,15 +1,13 @@
 
-
-import React, { useState, useEffect } from "react"
-import slide1 from "./images/slide1.jpeg"
-import slide2 from "./images/slide2.jpg"
-import slide3 from "./images/slide3.jpg"
+import slide1 from "../images/slide1.jpeg"
+import slide2 from "../images/slide2.jpg"
+import slide3 from "../images/slide3.jpg"
 
 import Carousel from 'react-bootstrap/Carousel';
 
 function Slide() {
   return (
-    <Carousel data-bs-theme="dark">
+    <Carousel data-bs-theme="dark" className="">
       <Carousel.Item>
         <img
           className="d-block w-100 border border-secondary"
@@ -17,8 +15,8 @@ function Slide() {
           alt="First slide"
         />
         <Carousel.Caption>
-          <div class=" px-5 py-3  ">
-            <p> Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+          <div className=" px-5 py-3">
+            <p className="text-white"> Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
             <a className="s12">Заказать</a>
           </div>
         </Carousel.Caption>
@@ -30,9 +28,9 @@ function Slide() {
           alt="Second slide"
         />
         <Carousel.Caption>
-          <div class=" px-5 py-3">
-            <div class=" px-5 py-3">
-              <p> Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+          <div className=" px-5 py-3">
+            <div className=" px-5 py-3">
+              <p className="text-white"> Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
               <a className="s12">Заказать</a>
             </div>
           </div>
@@ -45,8 +43,8 @@ function Slide() {
           alt="Third slide"
         />
         <Carousel.Caption>
-          <div class=" px-5 py-3">
-            <p> Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+          <div className=" px-5 py-3">
+            <p className="text-white"> Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
             <a className="s12">Заказать</a>
           </div>
         </Carousel.Caption>
