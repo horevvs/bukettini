@@ -1,7 +1,7 @@
 import './App.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import MainPageLogotip from './images/MainPageLogotip.png';
 import Slide from './components/Slide';
 import { BsFillBasketFill } from "react-icons/bs";
@@ -18,7 +18,7 @@ function MainComponent() {
     const [state, setState] = useState(catalog);
     const [basketshow, setbasketshow] = useState(true);
     const [baskethide, setbaskethide] = useState(true);
-    const [basket, setbasket] = useState();
+    const [basket, setbasket] = useState([]);
 
     let massiv = Array(catalog.length)
     massiv.fill(false)
@@ -32,19 +32,20 @@ function MainComponent() {
         setShow(false)
     }
 
+
+
     const addtoBasket = (id) => {
-        show2[id] = false
-        setShow(show2)
-        setShow(false)
-
-
+        // show2[id] = false
+        // setShow(show2)
+        // setShow(false)
         const Filtered = state.filter((el) => {
-        return el.id === id;})
-        // setbasket(Filtered)
-
-      
-        console.log(Filtered)
+            return el.id === id;
+        })
+        const collection3 = basket.concat(Filtered);
+        setbasket(collection3)
+        console.log(basket)
     }
+
 
 
 
@@ -56,7 +57,6 @@ function MainComponent() {
     const handleClosebasket = () => {
         return setbaskethide(!baskethide)
     };
-
 
     return (
         <div className="App">
@@ -73,7 +73,6 @@ function MainComponent() {
                     </div>
                 </div>
             </div>
-
 
             <div className='mainbackground   '>
                 <div className='d-flex '>
@@ -112,27 +111,16 @@ function MainComponent() {
                             </div>
                         )
                     })}
-
                 </div>
-
             </div>
-
-
-
-
-
-
-
 
             <div className="footer d-flex justify-content-between">
                 <div> Информация в футере </div>
                 <div className=" d-flex justify-content-between mx-4 bg-dark  ">
                     <a className='px-2 text-white' href="http://anysite.ru" > <AiFillInstagram /></a>
                     <a className='px-2 text-white' href="http://anysite.ru" > <FaTelegram /></a>
-
                 </div>
             </div>
-
         </div>
     )
 }
