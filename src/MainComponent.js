@@ -24,6 +24,8 @@ function MainComponent() {
     const [show, setShow] = useState(massiv);
     const [show2, setShow2] = useState([]);
 
+    let ara = []
+
     const handleClose = (id) => {
         show2[id] = false
         setShow(show2)
@@ -32,34 +34,22 @@ function MainComponent() {
 
     // добавление в корзину
     const addtoBasket = (id) => {
-
-        
-
+        show2[id] = false
+        setShow(show2)
+        setShow(false)
         const Filtered = catalog.filter((el) => {
             return el.id === id;
         })
-
         setbasket([...basket, ...Filtered])
-       
-       
-
         console.log(basket)
-        // setbasket(catalog)
-        // console.log(basket)
-        // if (basket == ![]) return setbasketshow(!basketshow)
+        if (basket == ![]) {
 
+            setbasketshow(!basketshow)
+        }
+
+        ara = basket
     }
 
-    // useEffect(() => {
-    //     // запуск эффекта
-    //     setbasket([...basket, ...Filtered])
-      
-    //     // очистка эффекта
-    //     return () => {
-    //     console.log
-    //     }
-    //     // массив зависимостей
-    //   }, [basket])
 
 
 
@@ -84,7 +74,7 @@ function MainComponent() {
                     <div className={baskethide ? "baskethide" : " "}  >
                         {basketshow ? (<div className='mr-5 emptyBasket'>  Пусто</div>)
                             : (
-                                <Basket className='' name={basket} />
+                                <Basket className='' basket={basket} />
                             )}
                     </div>
                 </div>
@@ -120,7 +110,7 @@ function MainComponent() {
                             <div key={item.id} className='mb-2' >
                                 <img onClick={() => handleShow(item.id)} src={item.image} className=" cardstyle cursor  py-2" alt="..." />
                                 <h5 className="card-title text-white">{item.name}</h5>
-                            
+
                                 <Modal show={show[item.id]} onHide={() => handleClose(item.id)} className=''>
                                     <img onClick={() => handleClose(item.id)} src={item.image} className="img-fluid cursor" alt="..." />
                                     <Button onClick={() => addtoBasket(item.id)} className='bg-dark border border-dar'> Добавить в корзину </Button>

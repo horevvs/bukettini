@@ -7,16 +7,32 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function Basket(props) {
-    const [basket, setBasket] = useState();
+
 
 
 
 
     return (
         <div className="basket">
-          
-            <p>props.name.id </p>
+            dd
+         
+
+
+            {props.basket.map((item) => {
+                return (
+                    <div className='mb-2' >
+                        {item.id}
+                    </div>
+                )
+            })}
+
+
+
+
+
+
         </div>
     )
 }
 export default Basket;
+
