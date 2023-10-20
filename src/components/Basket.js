@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
-function Basket() {
+function Basket(props) {
     const [basket, setBasket] = useState();
 
 
@@ -14,7 +14,8 @@ function Basket() {
 
     return (
         <div className="basket">
-             состав товара
+          
+            <p>props.name.id </p>
         </div>
     )
 }
