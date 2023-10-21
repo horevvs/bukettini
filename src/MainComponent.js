@@ -110,11 +110,11 @@ function MainComponent() {
                         return (
                             <div key={item.id} className='mb-2 carts justify-content-center' >
                                 <img onClick={() => handleShow(item.id)} src={item.image} className=" cardstyle cursor " alt="..." />
-                                <h5 className="bg-white text-black ">{item.name}</h5>
+                                <h5 className="bg-dark bg-opacity-75 text-white ">{item.name}</h5>
                                 <div className=' sas  bg-dark bg-opacity-75  d-flex flex-column  justify-content-center align-items-center '>
                                     <div className=' border border-white text-white  bg-dark boxbutton text-center  pt-2 ' onClick={() => addtoBasket(item.id)}>
                                         <p class="font-weight-bold">  <SlBasket  /> Добавить в корзину</p></div>
-                                    <div className=' border-bottom border-danger text-dark  bg-white boxbutton text-center mt-5 pt-2' onClick={() => handleShow(item.id)}>
+                                    <div className=' border border-white text-dark   bg-white boxbutton text-center mt-5 pt-2' onClick={() => handleShow(item.id)}>
                                         <p class="font-weight-bold"> <BsSearch className='mx-2' /> Просмотр</p></div>
                                 </div>
                                 <Modal show={show[item.id]}>
