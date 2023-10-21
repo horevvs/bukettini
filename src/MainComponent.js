@@ -5,9 +5,10 @@ import { useState, useEffect } from 'react';
 import MainPageLogotip from './images/MainPageLogotip.png';
 import Slide from './components/Slide';
 import { BsFillBasketFill } from "react-icons/bs";
+import { BsSearch } from "react-icons/bs";
+import { SlBasket } from "react-icons/sl";
 import { AiFillInstagram } from "react-icons/ai";
 import { FaTelegram } from "react-icons/fa";
-import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import catalog from "./catalog.json";
 import Basket from './components/Basket';
@@ -104,16 +105,25 @@ function MainComponent() {
 
                 </div>
 
-                <div className='d-flex  flex-wrap scroll justify-content-around '>
+                <div className='d-flex  flex-wrap scroll justify-content-around  '>
                     {state.map((item) => {
                         return (
-                            <div key={item.id} className='mb-2' >
-                                <img onClick={() => handleShow(item.id)} src={item.image} className=" cardstyle cursor  py-2" alt="..." />
-                                <h5 className="card-title text-white">{item.name}</h5>
-
-                                <Modal show={show[item.id]} onHide={() => handleClose(item.id)} className=''>
-                                    <img onClick={() => handleClose(item.id)} src={item.image} className="img-fluid cursor" alt="..." />
-                                    <Button onClick={() => addtoBasket(item.id)} className='bg-dark border border-dar'> Добавить в корзину </Button>
+                            <div key={item.id} className='mb-2 carts justify-content-center' >
+                                <img onClick={() => handleShow(item.id)} src={item.image} className=" cardstyle cursor " alt="..." />
+                                <h5 className="bg-white text-black ">{item.name}</h5>
+                                <div className=' sas  bg-dark bg-opacity-75  d-flex flex-column  justify-content-center align-items-center '>
+                                    <div className=' border border-white text-white  bg-dark boxbutton text-center  pt-2 ' onClick={() => addtoBasket(item.id)}>
+                                        <p class="font-weight-bold">  <SlBasket  /> Добавить в корзину</p></div>
+                                    <div className=' border-bottom border-danger text-dark  bg-white boxbutton text-center mt-5 pt-2' onClick={() => handleShow(item.id)}>
+                                        <p class="font-weight-bold"> <BsSearch className='mx-2' /> Просмотр</p></div>
+                                </div>
+                                <Modal show={show[item.id]}>
+                                    <Modal.Header className='bg-dark bg-opacity-25' onClick={() => handleClose(item.id)} closeButton>
+                                    </Modal.Header>
+                                    <img src={item.image} className="img-fluid cursor" alt="..." />
+                                    <Modal.Footer className='bg-dark bg-opacity-25'>
+                                        <p> Название - {item.name} Стоимость- {item.price} рублей</p>
+                                    </Modal.Footer>
                                 </Modal>
                             </div>
                         )
