@@ -13,15 +13,15 @@ function Basket(props) {
 
 
     return (
-        <div className="basket">
-            dd
-         
+        <div className="baskettotal">
+            <p> Список товаров</p>
+
 
 
             {props.basket.map((item) => {
                 return (
                     <div className='mb-2' >
-                        {item.id}
+                        <p> {item.name} -{item.price} rub  </p>
                     </div>
                 )
             })}

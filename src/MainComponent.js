@@ -81,8 +81,8 @@ function MainComponent() {
             </div>
 
             <div className='mainbackground   '>
-                <div className='d-flex '>
-                    <div className='d-flex flex-md-column  flex-wrap fustify justify-content-center'>
+                <div className='d-flex justify-content-center '>
+                    <div className='d-flex  flex-wrap fustify justify-content-center'>
                         <div className=" px-5 py-3">
                             <button className='transformtext '> <span>Мужское</span></button>
                         </div>
@@ -98,9 +98,9 @@ function MainComponent() {
                         </div>
                     </div>
 
-                    <div className='mx-5 my-2 hide '>
+                    {/* <div className='mx-5 my-2 hide '>
                         <Slide />
-                    </div>
+                    </div> */}
 
                 </div>
 
