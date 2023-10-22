@@ -23,22 +23,15 @@ body {
   background-size: cover;
 }
 
-
-.basketDisplay{
- width: 100%;
- height: 100vh;
-  background-color: rgba(255, 0, 0, 0.493);
+.basketDisplay {
+  width: 100%;
+  height: 95vh;
+  background-color: red;
   position: absolute;
   left: 0px;
   top: 0px;
   z-index: 1500;
-
-
-
 }
-
-
-
 
 .emptyBasket {
   width: 100px;
@@ -47,7 +40,6 @@ body {
   position: relative;
   right: 100px;
 }
-
 
 .baskethide {
   display: none;
@@ -120,8 +112,6 @@ body {
     font-size: 28px;
     text-align: center;
   }
-
-
 
   @media (max-width: 490px) {
     margin-top: 3%;
@@ -248,7 +238,16 @@ body {
   width: 0;
   height: 100%;
   background: white;
-  transition: all 0.5s;
+  transition: all 1.2s;
+}
+.digital{
+width: 50px;
+height: 50px;
+/* background-color: red; */
+position: relative;
+right: 40px;
+top: 20px;
+
 }
 
 .transformtext:hover {
@@ -297,22 +296,23 @@ body {
 .scroll {
   height: 75vh;
   background-color: #282c344b;
-
   overflow-y: scroll;
 
   @media (max-width: 820px) {
     height: 60vh;
   }
-
 }
+
+.scrollbasket {
+  overflow-y: scroll;
+}
+
 
 .boxbutton {
   width: 200px;
   height: 50px;
   transform: scale(0.5);
-} 
-
-
+}
 
 
 .sas {
@@ -322,7 +322,7 @@ body {
   height: 330px;
   opacity: 0;
   margin-bottom: -330px;
-  
+
 }
 
 
@@ -334,41 +334,47 @@ body {
   opacity: 1;
   transform: scale(1);
   transition: all 0.9s ease-out;
-  }
+}
 
-  .carts:hover  p {
-    transform: scale(1.1);
-    cursor: pointer;
-    transition: all 0.8s ease-out;
-    }
+.carts:hover p {
+  transform: scale(1.1);
+  cursor: pointer;
+  transition: all 0.8s ease-out;
+}
 
-    .carts:hover .boxbutton {
-     
-      transform: scale(1);
-      transition: all 0.3s ease-out;
-      }
+.carts:hover .boxbutton {
+
+  transform: scale(1);
+  transition: all 0.3s ease-out;
+}
+
+.scrollbasket{
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+}
+
+.scrollbasket::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
 
 
 
-  
-    
-
-
-
-
-.scroll::-webkit-scrollbar {
+ .scroll::-webkit-scrollbar {
   width: 10px;
   /* Ширина всего элемента навигации */
   border-radius: 20px;
   /* Округление бегунка */
 }
 
-.scroll::-webkit-scrollbar-track {
+ .scroll::-webkit-scrollbar-track {
   background: #282c3454;
   /* Цвет дорожки */
 }
 
-.scroll::-webkit-scrollbar-thumb {
+ .scroll::-webkit-scrollbar-thumb {
   background-color: #050c26;
   /* Цвет бегунка */
   border-radius: 10px;

@@ -69,10 +69,12 @@ function MainComponent() {
                 <img src={MainPageLogotip} width='80px' height='80px' className='animation' alt='' />
                 <span className='forspan'> Bukettini - лучший подарок человеку, у которого есть все! </span>
                 <div className='basket'>
-
-                    <SlBasket onClick={handleClosebasket} />
+                    <div className=' '> <SlBasket className='mx-4 my-5 ' onClick={handleClosebasket} />
+                        <span className=' mx-3 digital'>
+                            {basket.length == 0 ? (null) : (basket.length)}</span>
+                    </div>
                     <div className={baskethide ? "baskethide" : " "}  >
-                        {basketshow ? (<div>  Пусто </div>)
+                        {basketshow ? (<p> Пусто</p>)
                             : (
                                 <Basket basket={basket} handleClosebasket={handleClosebasket} />
                             )}
@@ -108,10 +110,10 @@ function MainComponent() {
                     {state.map((item) => {
                         return (
                             <div key={item.id} className='mb-2 carts justify-content-center' >
-                                <img onClick={() => handleShow(item.id)} src={item.image} className=" cardstyle cursor " alt="..." />
+                                <img onClick={() => handleShow(item.id)} src={item.image} className=" cardstyle cursor  border  border-5 border-white" alt="..." />
                                 <h5 className="bg-dark bg-opacity-75 text-white ">{item.name}</h5>
                                 <div className=' sas  bg-dark bg-opacity-75  d-flex flex-column  justify-content-center align-items-center '>
-                                    <div className=' border border-white text-white  bg-dark boxbutton text-center  pt-2 ' onClick={() => addtoBasket(item.id)}>
+                                    <div className='border border-white text-white  bg-dark boxbutton text-center pt-2' onClick={() => addtoBasket(item.id)}>
                                         <p class="font-weight-bold">  <SlBasket /> Добавить в корзину</p></div>
                                     <div className=' border border-white text-dark   bg-white boxbutton text-center mt-5 pt-2' onClick={() => handleShow(item.id)}>
                                         <p class="font-weight-bold"> <BsSearch className='mx-2' /> Просмотр</p></div>
@@ -119,7 +121,7 @@ function MainComponent() {
                                 <Modal show={show[item.id]}>
                                     <Modal.Header className='bg-dark bg-opacity-25' onClick={() => handleClose(item.id)} closeButton>
                                     </Modal.Header>
-                                    <img src={item.image} className="img-fluid cursor" alt="..." />
+                                    <img src={item.image} className="img-fluid cursor border  border-5 border-white" alt="..." />
                                     <Modal.Footer className='bg-dark bg-opacity-25'>
                                         <p> Название - {item.name} Стоимость- {item.price} рублей</p>
                                     </Modal.Footer>
