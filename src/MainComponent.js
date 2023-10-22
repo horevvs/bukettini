@@ -70,7 +70,7 @@ function MainComponent() {
                 <span className='forspan'> Bukettini - лучший подарок человеку, у которого есть все! </span>
                 <div className='basket'>
                     <div className=' '> <SlBasket className='mx-4 my-5 ' onClick={handleClosebasket} />
-                        <span className=' mx-3 digital'>
+                        <span className=' mx-3 digital '>
                             {basket.length == 0 ? (null) : (basket.length)}</span>
                     </div>
                     <div className={baskethide ? "baskethide" : " "}  >
