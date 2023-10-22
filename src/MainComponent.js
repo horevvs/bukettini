@@ -44,10 +44,8 @@ function MainComponent() {
         setbasket([...basket, ...Filtered])
         console.log(basket)
         if (basket == ![]) {
-
             setbasketshow(!basketshow)
         }
-
         ara = basket
     }
 
@@ -71,11 +69,12 @@ function MainComponent() {
                 <img src={MainPageLogotip} width='80px' height='80px' className='animation' alt='' />
                 <span className='forspan'> Bukettini - лучший подарок человеку, у которого есть все! </span>
                 <div className='basket'>
-                    <BsFillBasketFill onClick={handleClosebasket} />
+
+                    <SlBasket onClick={handleClosebasket} />
                     <div className={baskethide ? "baskethide" : " "}  >
-                        {basketshow ? (<div className='mr-5 emptyBasket'>  Пусто</div>)
+                        {basketshow ? (<div>  Пусто </div>)
                             : (
-                                <Basket className='' basket={basket} />
+                                <Basket basket={basket} handleClosebasket={handleClosebasket} />
                             )}
                     </div>
                 </div>
@@ -113,7 +112,7 @@ function MainComponent() {
                                 <h5 className="bg-dark bg-opacity-75 text-white ">{item.name}</h5>
                                 <div className=' sas  bg-dark bg-opacity-75  d-flex flex-column  justify-content-center align-items-center '>
                                     <div className=' border border-white text-white  bg-dark boxbutton text-center  pt-2 ' onClick={() => addtoBasket(item.id)}>
-                                        <p class="font-weight-bold">  <SlBasket  /> Добавить в корзину</p></div>
+                                        <p class="font-weight-bold">  <SlBasket /> Добавить в корзину</p></div>
                                     <div className=' border border-white text-dark   bg-white boxbutton text-center mt-5 pt-2' onClick={() => handleShow(item.id)}>
                                         <p class="font-weight-bold"> <BsSearch className='mx-2' /> Просмотр</p></div>
                                 </div>
