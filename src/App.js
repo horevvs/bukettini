@@ -13,24 +13,24 @@ function App() {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 500);
   }, []);
 
   return (
-
     <div className="App">
       {loading ? (
-        <div className='bodyloader '><span className="loader">  <img src={MainPageLogotip} width='300px' height='300px' alt='' />    </span></div>
+        <div className='bodyloader '><span className="loader">  <img src={MainPageLogotip} width='300px' height='300px' alt='' />    </span>
+        </div>
       ) : (
         <BrowserRouter>
           <Routes>
             <Route path="*" element={<MainComponent />} />
-            <Route path="/2" element={<Feedback />} /> 
+            <Route path="/2" element={<Feedback />} />
           </Routes>
         </BrowserRouter>
-
       )}
     </div>
   )
 }
+
 export default App;

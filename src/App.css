@@ -11,6 +11,12 @@
   width: 100%;
   margin: 0;
 }
+.yandex{
+  margin-top: 30px;
+  width: 30%;
+  height: 45%;
+  background-color: #2B2828;
+}
 
 
 body {
@@ -45,17 +51,6 @@ body {
   display: none;
 }
 
-/* .basket {
-  margin-top: 2%;
-  margin-right: 3%;
-  width: 30px;
-  height: 50px;
-  cursor: pointer;
-
-  @media (max-width: 490px) {
-    margin-top: 3%;
-  }
-} */
 
 .cursor {
   cursor: pointer
