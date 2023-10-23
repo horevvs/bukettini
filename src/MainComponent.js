@@ -83,7 +83,7 @@ function MainComponent() {
                             {basket.length == 0 ? (null) : (<div onClick={handleClosebasket} className=' digital text-dark bg-white '>  {basket.length} </div>)}</span>
                     </div>
                     <div className={baskethide ? "baskethide" : " "}  >
-                        {basketshow ? (<p> Пусто</p>)
+                        {basketshow ? (<div className=' digital text-dark bg-white'>  {basket.length} </div>)
                             : (
                                 <Basket basket={basket} handleClosebasket={handleClosebasket} />
                             )}
