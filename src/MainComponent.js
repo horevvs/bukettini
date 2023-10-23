@@ -69,9 +69,9 @@ function MainComponent() {
                 <img src={MainPageLogotip} width='80px' height='80px' className='animation' alt='' />
                 <span className='forspan'> Bukettini - лучший подарок человеку, у которого есть все! </span>
                 <div className='basket'>
-                    <div className=' '> <SlBasket className='mx-4 my-5 ' onClick={handleClosebasket} />
-                        <span className=' mx-3 digital '>
-                            {basket.length == 0 ? (null) : (basket.length)}</span>
+                    <div > <SlBasket className='mx-4 my-5 cursor ' onClick={handleClosebasket} />
+                        <span className=' mx-3  '>
+                            {basket.length == 0 ? (null) : (<div   onClick={handleClosebasket} className=' digital text-dark bg-white '>  {basket.length} </div>  )}</span>
                     </div>
                     <div className={baskethide ? "baskethide" : " "}  >
                         {basketshow ? (<p> Пусто</p>)
