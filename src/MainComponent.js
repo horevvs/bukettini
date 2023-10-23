@@ -12,10 +12,15 @@ import { FaTelegram } from "react-icons/fa";
 import Modal from 'react-bootstrap/Modal';
 import catalog from "./catalog.json";
 import Basket from './components/Basket';
-
+import { useNavigate } from 'react-router-dom';
 
 
 function MainComponent() {
+
+    //  создаем хук чтобы организовать навигацию
+    const navigate = useNavigate();
+
+
     const [state, setState] = useState(catalog);
     const [basketshow, setbasketshow] = useState(true);
     const [baskethide, setbaskethide] = useState(true);
@@ -24,7 +29,6 @@ function MainComponent() {
     massiv.fill(false)
     const [show, setShow] = useState(massiv);
     const [show2, setShow2] = useState([]);
-
     let ara = []
 
     const handleClose = (id) => {
@@ -49,6 +53,11 @@ function MainComponent() {
         ara = basket
     }
 
+    const handleClick = () => {
+        setTimeout(() => {
+            navigate('/2');
+        }, 500);
+    }
 
 
 
@@ -71,7 +80,7 @@ function MainComponent() {
                 <div className='basket'>
                     <div > <SlBasket className='mx-4 my-5 cursor ' onClick={handleClosebasket} />
                         <span className=' mx-3  '>
-                            {basket.length == 0 ? (null) : (<div   onClick={handleClosebasket} className=' digital text-dark bg-white '>  {basket.length} </div>  )}</span>
+                            {basket.length == 0 ? (null) : (<div onClick={handleClosebasket} className=' digital text-dark bg-white '>  {basket.length} </div>)}</span>
                     </div>
                     <div className={baskethide ? "baskethide" : " "}  >
                         {basketshow ? (<p> Пусто</p>)
@@ -96,7 +105,7 @@ function MainComponent() {
                             <button className='transformtext '> <span>Товар в наличии</span></button>
                         </div>
                         <div className="px-5 py-3">
-                            <button className='transformtext '><span>Обратная связь</span></button>
+                            <button onClick={handleClick} className='transformtext '><span>Обратная связь</span></button>
                         </div>
                     </div>
 
