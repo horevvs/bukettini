@@ -11,7 +11,7 @@ function Basket(props) {
     let price = props.basket
 
     let b = [...new Set(props.basket)]
-    // const [renderinput, setrenderinput] = useState(a);
+    const [renderinput, setrenderinput] = useState(b);
 
     const totalAmount = price.reduce(
         function (sum, currentAccount) {
@@ -19,27 +19,16 @@ function Basket(props) {
         }, 0)
 
 
-var result = {};
+     var result = {};
 
 
-
-// arr.forEach(function(a){
-//     if (result[a.id] != undefined)
-//         ++result[a.id];
-//     else
-//         result[a.id] = 1;
-// });
-//  console.log(result)
-// ;
-
-
-        const sum=price.forEach(function(a){
+        price.forEach(function(a){
                 if (result[a.id] != undefined)
                     ++result[a.id];
                 else
                     result[a.id] = 1;
             });
-             console.log(result)
+            
 
 
     return (
@@ -53,11 +42,10 @@ var result = {};
                     <div>
                         <div className='d-flex mt-3  ' >
                             <img src={item.image} className="cursor cardstyle  border  border-4 border-white mx-3" alt="..." />
-                            <p> {item.name}   </p>
-                            <p> {item.price}   </p>
-                            <p>   количество - {result[item.id]  }  </p>
-                              
-
+                            <div className='mx-2'> {item.name}   </div>
+                            <div className='mx-2'> {item.price}рублей  </div>
+                            <div className='mx-2'>  
+                            <button type="button" class="btn btn-primary btn-sm"> - </button>  количество - {result[item.id]}шт. <button type="button" class="btn btn-primary btn-sm">+</button>  </div>
                             <ImCross className='mx-4 mt-4' />
                         </div>
                         <hr className='border border-4 border-white mx-3' ></hr>
