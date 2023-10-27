@@ -8,13 +8,14 @@ import { ImCross } from "react-icons/im";
 
 function Basket(props) {
 
-    const [renderinput, setrenderinput] = useState();
+    const [renderinput, setrenderinput] = useState(props.basket);
+    
 // ложим сюда с пропса массив
     let price = props.basket
 
     useEffect(() => {
         setrenderinput(price)
-        console.log(renderinput)
+        // console.log(renderinput)
       }, [price]);
 
       // убираем с массива повторяющиеся элементы
@@ -29,7 +30,6 @@ function Basket(props) {
 
     
     const deleteFrombasket = (id) => {
-    
        const Filtered = b.filter((el) => {
         return el.id !== id;
     })
@@ -38,14 +38,23 @@ function Basket(props) {
 
     };
 
-// добавляем количество выбранных одинаковых товаров
-    var result = {};
+
+    const deleteminus = (id) => {    
+    //     const Filtered = b.filter((el) => {
+    //      return el.id !== id;
+    //  }) 
+     };
+
+    // добавляем количество выбранных одинаковых товаров
+    let result = {};
     price.forEach(function(a){
     if (result[a.id] != undefined)
     ++result[a.id];
     else
     result[a.id] = 1;
     });
+
+    
             
     return (
         <div className="basketDisplay scrollbasket">
@@ -58,7 +67,9 @@ function Basket(props) {
                             <div className='mx-2'> {item.name}   </div>
                             <div className='mx-2'> {item.price}рублей  </div>
                             <div className='mx-2'>  
-                            <button type="button" class="btn btn-primary btn-sm"> - </button>  количество - {result[item.id]}шт. <button type="button" class="btn btn-primary btn-sm">+</button>  </div>
+                            <button type="button" class="btn btn-primary btn-sm" onClick={() => deleteminus(item.id)}> - </button> 
+                             количество - {result[item.id]}шт. 
+                            <button type="button" class="btn btn-primary btn-sm">+</button>  </div>
                             <ImCross className='mx-4 mt-4' onClick={() => deleteFrombasket(item.id)} />
                         </div>
                         <hr className='border border-4 border-white mx-3' ></hr>
