@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -8,37 +8,50 @@ import { ImCross } from "react-icons/im";
 
 function Basket(props) {
 
+    const [renderinput, setrenderinput] = useState();
+// ложим сюда с пропса массив
     let price = props.basket
 
-    let b = [...new Set(props.basket)]
-    const [renderinput, setrenderinput] = useState(b);
+    useEffect(() => {
+        setrenderinput(price)
+        console.log(renderinput)
+      }, [price]);
 
+      // убираем с массива повторяющиеся элементы
+    let b = [...new Set(renderinput)]
+
+    // считаем сумму всех товаров вставляем
     const totalAmount = price.reduce(
-        function (sum, currentAccount) {
-            return sum + currentAccount.price
-        }, 0)
+    function (sum, currentAccount) {
+    return sum + currentAccount.price
+    }, 0)
 
 
-     var result = {};
+    
+    const deleteFrombasket = (id) => {
+    
+       const Filtered = b.filter((el) => {
+        return el.id !== id;
+    })
+    setrenderinput(Filtered)
 
 
-        price.forEach(function(a){
-                if (result[a.id] != undefined)
-                    ++result[a.id];
-                else
-                    result[a.id] = 1;
-            });
+    };
+
+// добавляем количество выбранных одинаковых товаров
+    var result = {};
+    price.forEach(function(a){
+    if (result[a.id] != undefined)
+    ++result[a.id];
+    else
+    result[a.id] = 1;
+    });
             
-
-
     return (
         <div className="basketDisplay scrollbasket">
             <div className='d-flex justify-content-between  header'> <p className='mx-4 mt-4'>Оформление заказа</p>    <div>Итого  {totalAmount}  рублей</div>  <ImCross className='mx-4 mt-4' onClick={props.handleClosebasket} />       </div>
-            {b.map((item) =>  {
-
+            { b.map((item) =>  {
                 return (
-
-
                     <div>
                         <div className='d-flex mt-3  ' >
                             <img src={item.image} className="cursor cardstyle  border  border-4 border-white mx-3" alt="..." />
@@ -46,7 +59,7 @@ function Basket(props) {
                             <div className='mx-2'> {item.price}рублей  </div>
                             <div className='mx-2'>  
                             <button type="button" class="btn btn-primary btn-sm"> - </button>  количество - {result[item.id]}шт. <button type="button" class="btn btn-primary btn-sm">+</button>  </div>
-                            <ImCross className='mx-4 mt-4' />
+                            <ImCross className='mx-4 mt-4' onClick={() => deleteFrombasket(item.id)} />
                         </div>
                         <hr className='border border-4 border-white mx-3' ></hr>
                     </div>
