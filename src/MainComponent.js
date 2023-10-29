@@ -25,6 +25,7 @@ function MainComponent() {
     const [basketshow, setbasketshow] = useState(true);
     const [baskethide, setbaskethide] = useState(true);
     const [basket, setbasket] = useState([]);
+    
     let massiv = Array(catalog.length)
     massiv.fill(false)
     const [show, setShow] = useState(massiv);
@@ -69,8 +70,35 @@ function MainComponent() {
 
     // показать скрыть корзину
     const handleClosebasket = () => {
+        console.log(basket.length)
         return setbaskethide(!baskethide)
     };
+
+    const deleteFrombasket = (id) => {
+        const Filtered = basket.filter((el) => {
+            return el.id !== id;
+        })
+        setbasket(Filtered)
+
+        console.log(basket.length)
+    };
+
+    const deleteminus = (id) => {
+        console.log(basket)
+       
+    };
+
+    const deletplus = (id) => {
+        const Filtered = catalog.filter((el) => {
+            return el.id === id;
+        })
+        setbasket([...basket, ...Filtered])
+    };
+
+
+
+
+
 
     return (
         <div className="App">
@@ -78,14 +106,14 @@ function MainComponent() {
                 <img src={MainPageLogotip} width='80px' height='80px' className='animation' alt='' />
                 <span className='forspan'> Bukettini - лучший подарок человеку, у которого есть все! </span>
                 <div className='basket'>
-                    <div > <SlBasket className='mx-4 my-5 cursor ' onClick={handleClosebasket} />
+                    <div> <SlBasket className='mx-4 my-5 cursor ' onClick={handleClosebasket} />
                         <span className=' mx-3  '>
-                            {basket.length == 0 ? (null) : (<div onClick={handleClosebasket} className=' digital text-dark bg-white '>  {basket.length} </div>)}</span>
+                            {basket.length === 0 ? (null) : (<div onClick={handleClosebasket} className=' digital text-dark bg-white '>  {basket.length} </div>)}</span>
                     </div>
                     <div className={baskethide ? "baskethide" : " "}  >
                         {basketshow ? (<div className=' digital text-dark bg-white'>  {basket.length} </div>)
                             : (
-                                <Basket basket={basket} handleClosebasket={handleClosebasket} />
+                                <Basket basket={basket} handleClosebasket={handleClosebasket} deleteFrombasket={deleteFrombasket} deleteminus={deleteminus}   deletplus={ deletplus}/>
                             )}
                     </div>
                 </div>
