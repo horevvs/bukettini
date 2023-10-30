@@ -27,7 +27,7 @@ function Basket(props) {
 
     return (
         <div className="basketDisplay scrollbasket">
-            <div className='d-flex justify-content-between  header'> <p className='mx-4 mt-4'>Оформление заказа</p>    <div>Итого  {totalAmount}  рублей</div>  <ImCross className='mx-4 mt-4' onClick={props.handleClosebasket} />       </div>
+            <div className='d-flex justify-content-between  header'> <p className='mx-4 mt-4'>Оформление заказа</p>    <div className='mx-4 mt-4'>Итого  {totalAmount}  рублей</div>  <ImCross className='mx-5 mt-4 cursor' onClick={props.handleClosebasket} />       </div>
             {b.map((item) => {
                 return (
                     <div key={item.id}>

@@ -20,7 +20,6 @@ function MainComponent() {
     //  создаем хук чтобы организовать навигацию
     const navigate = useNavigate();
 
-    const [result, setresult] = useState();
     const [state, setState] = useState(catalog);
     const [basketshow, setbasketshow] = useState(true);
     const [baskethide, setbaskethide] = useState(true);
@@ -40,26 +39,22 @@ function MainComponent() {
 
     // добавление в корзину
     const addtoBasket = (id) => {
-        show2[id] = false
-        setShow(show2)
-        setShow(false)
+        // show2[id] = false
+        // setShow(show2)
+        // setShow(false)
         const Filtered = catalog.filter((el) => {
             return el.id === id;
         })
         setbasket([...basket, ...Filtered])
-        console.log(basket)
-        if (basket == ![]) {
-            setbasketshow(!basketshow)
-        }
-
+        // if (basket === [] ) { setbasketshow(!basketshow) }
     }
 
+    // переход с задержкой
     const handleClick = () => {
         setTimeout(() => {
             navigate('/2');
         }, 500);
     }
-
 
 
     // показать модальное окно
@@ -70,62 +65,31 @@ function MainComponent() {
 
     // показать скрыть корзину
     const handleClosebasket = () => {
-        console.log(basket.length)
         return setbaskethide(!baskethide)
     };
 
+    // удалить с корзины
     const deleteFrombasket = (id) => {
-
-
         const Filtered = basket.filter((el) => {
             return el.id !== id;
         })
         setbasket(Filtered)
-        console.log(basket.length)
     };
 
-
-
+    // удалить 
     const deleteminus = (id) => {
-
-       
         let a = basket
-
         for (let i = a.length; i--;) {
             if (a[i].id === id) {
                 a.splice(i, 1);
                 break
             }
         }
-
-        
-
-        setbasket([...a,...[]])
+        setbasket([...a, ...[]])
         console.log(basket)
-
-        // basket.sort((a, b) => a.id > b.id ? 1 : -1);
-        // console.log(basket)
-
-        // let result = basket.findIndex(el => el.id !== id)
-        // console.log(result)
-        // let c = basket.splice(result,1 )
-
-        // console.log(c);
-
-        //допустим, что дан массив имён.
-        // Нам необходимо удалить из массива второй элемент.
-
-        // console.log(c); // => [ 'John', 'Darina', 'Kris' ]
-
-
-        // console.log(basket.indexOf(id)); // => 0
-
-
-        // показать скрыть корзину
-
-
     };
-    // пдобавить в корзине
+
+    // прибавить в корзине
     const deletplus = (id) => {
         const Filtered = catalog.filter((el) => {
             return el.id === id;
@@ -135,24 +99,25 @@ function MainComponent() {
 
 
 
-
-
-
     return (
         <div className="App">
             <div className="header d-flex  justify-content-between">
                 <img src={MainPageLogotip} width='80px' height='80px' className='animation' alt='' />
                 <span className='forspan'> Bukettini - лучший подарок человеку, у которого есть все! </span>
                 <div className='basket'>
+
                     <div> <SlBasket className='mx-4 my-5  ' />
                         <span className=' mx-3  '>
-                            {basket.length === 0 ? (null) : (<div onClick={handleClosebasket} className=' digital text-dark bg-white '>  {basket.length} </div>)}</span>
+                            {basket.length === 0 ? (null) : (<div onClick={handleClosebasket} className='digital text-dark bg-white'>  {basket.length} </div>)}</span>
                     </div>
+
                     <div className={baskethide ? "baskethide" : " "}  >
-                        {basketshow ? (<div className=' digital text-dark bg-white'>  {basket.length} </div>)
+
+                    <Basket basket={basket} handleClosebasket={handleClosebasket} deleteFrombasket={deleteFrombasket} deleteminus={deleteminus} deletplus={deletplus} />
+                        {/* {basketshow ? (<div className=' digital text-dark bg-white'>  {basket.length} </div>)
                             : (
                                 <Basket basket={basket} handleClosebasket={handleClosebasket} deleteFrombasket={deleteFrombasket} deleteminus={deleteminus} deletplus={deletplus} />
-                            )}
+                            )} */}
                     </div>
                 </div>
             </div>
