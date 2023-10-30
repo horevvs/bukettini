@@ -2,34 +2,34 @@
     {
         "id": 0,
         "image": "mens/1.jpg",
-        "price": 200, 
+        "price": 159, 
         "name": "food1111"
          
     },
     {
         "id": 1,
         "image": "/mens/2.jpg",
-        "price": 200, 
+        "price": 170, 
         "name": "food2"
          
     },
     {
         "id": 2,
         "image": "/mens/3.jpg",
-        "price": 200, 
+        "price":322, 
         "name": "food3"
          
     },
     {
         "id": 3,
         "image": "/mens/4.jpg",
-        "price": 200, 
+        "price": 272, 
         "name": "food4"
     },
     {
         "id": 4,
         "image": "/mens/5.jpg",
-        "price": 200, 
+        "price": 225, 
         "name": "food5" 
     },
     {

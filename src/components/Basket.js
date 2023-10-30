@@ -6,22 +6,14 @@ import { ImCross } from "react-icons/im";
 function Basket(props) {
 
 
-
-    // ложим сюда с пропса массив
-    let price = props.basket
-
-
     // убираем с массива повторяющиеся элементы
     let b = [...new Set(props.basket)]
 
     // считаем сумму всех товаров вставляем
-    const totalAmount = price.reduce(
+    const totalAmount = props.basket.reduce(
         function (sum, currentAccount) {
             return sum + currentAccount.price
         }, 0)
-
-
-
 
     // добавляем количество выбранных одинаковых товаров
     let result = {};
@@ -31,7 +23,6 @@ function Basket(props) {
         else
             result[a.id] = 1;
     })
-
 
 
     return (
@@ -47,7 +38,7 @@ function Basket(props) {
                             <div className='mx-2'>
                                 <button type="button" className="btn btn-primary btn-sm" onClick={() => props.deleteminus(item.id)}> - </button>
                                 количество - {result[item.id]}шт.
-                                <button type="button" className="btn btn-primary btn-sm" onClick={() => props.deletplus(item.id)}>+</button>  </div>
+                                <button type="button" className="btn btn-primary btn-sm" onClick={() => props.deletplus(item.id)}> + </button>  </div>
                             <ImCross className='mx-4 mt-4' onClick={() => props.deleteFrombasket(item.id)} />
                         </div>
                         <hr className='border border-4 border-white mx-3' ></hr>

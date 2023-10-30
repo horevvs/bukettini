@@ -1,10 +1,10 @@
 import './App.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import MainPageLogotip from './images/MainPageLogotip.png';
-import Slide from './components/Slide';
-import { BsFillBasketFill } from "react-icons/bs";
+
+
 import { BsSearch } from "react-icons/bs";
 import { SlBasket } from "react-icons/sl";
 import { AiFillInstagram } from "react-icons/ai";
@@ -25,12 +25,12 @@ function MainComponent() {
     const [basketshow, setbasketshow] = useState(true);
     const [baskethide, setbaskethide] = useState(true);
     const [basket, setbasket] = useState([]);
-    
+
     let massiv = Array(catalog.length)
     massiv.fill(false)
     const [show, setShow] = useState(massiv);
     const [show2, setShow2] = useState([]);
-    let ara = []
+
 
     const handleClose = (id) => {
         show2[id] = false
@@ -51,7 +51,7 @@ function MainComponent() {
         if (basket == ![]) {
             setbasketshow(!basketshow)
         }
-        ara = basket
+
     }
 
     const handleClick = () => {
@@ -79,15 +79,24 @@ function MainComponent() {
             return el.id !== id;
         })
         setbasket(Filtered)
-
         console.log(basket.length)
     };
 
-    const deleteminus = (id) => {
-        console.log(basket)
-       
-    };
 
+
+    const deleteminus = (id) => {
+
+
+
+
+        console.log(basket.indexOf(id)); // => 0
+  
+
+        // показать скрыть корзину
+     
+
+    };
+    // пдобавить в корзине
     const deletplus = (id) => {
         const Filtered = catalog.filter((el) => {
             return el.id === id;
@@ -106,14 +115,14 @@ function MainComponent() {
                 <img src={MainPageLogotip} width='80px' height='80px' className='animation' alt='' />
                 <span className='forspan'> Bukettini - лучший подарок человеку, у которого есть все! </span>
                 <div className='basket'>
-                    <div> <SlBasket className='mx-4 my-5 cursor ' onClick={handleClosebasket} />
+                    <div> <SlBasket className='mx-4 my-5  ' />
                         <span className=' mx-3  '>
                             {basket.length === 0 ? (null) : (<div onClick={handleClosebasket} className=' digital text-dark bg-white '>  {basket.length} </div>)}</span>
                     </div>
                     <div className={baskethide ? "baskethide" : " "}  >
                         {basketshow ? (<div className=' digital text-dark bg-white'>  {basket.length} </div>)
                             : (
-                                <Basket basket={basket} handleClosebasket={handleClosebasket} deleteFrombasket={deleteFrombasket} deleteminus={deleteminus}   deletplus={ deletplus}/>
+                                <Basket basket={basket} handleClosebasket={handleClosebasket} deleteFrombasket={deleteFrombasket} deleteminus={deleteminus} deletplus={deletplus} />
                             )}
                     </div>
                 </div>
