@@ -34,11 +34,11 @@ function Basket(props) {
                         <div className='d-flex mt-3  ' >
                             <img src={item.image} className="cursor cardstyle  border  border-4 border-white mx-3" alt="..." />
                             <div className='mx-2'> {item.name}   </div>
-                            <div className='mx-2'> {item.price}рублей  </div>
+                            <div className='mx-2'> {item.price} рублей  </div>
                             <div className='mx-2'>
-                                <button type="button" className="btn btn-primary btn-sm" onClick={() => props.deleteminus(item.id)}> - </button>
-                                количество - {result[item.id]}шт.
-                                <button type="button" className="btn btn-primary btn-sm" onClick={() => props.deletplus(item.id)}> + </button>  </div>
+                                <button type="button" className="btn btn-dark btn-sm px-2  x-2" onClick={() => props.deleteminus(item.id)}> - </button>
+                                количество - {result[item.id]} шт. 
+                                 <button type="button" className="btn btn-dark btn-sm px-2" onClick={() => props.deletplus(item.id)}> + </button>  </div>
                             <ImCross className='mx-4 mt-4' onClick={() => props.deleteFrombasket(item.id)} />
                         </div>
                         <hr className='border border-4 border-white mx-3' ></hr>

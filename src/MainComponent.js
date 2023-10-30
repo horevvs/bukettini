@@ -20,7 +20,7 @@ function MainComponent() {
     //  создаем хук чтобы организовать навигацию
     const navigate = useNavigate();
 
-
+    const [result, setresult] = useState();
     const [state, setState] = useState(catalog);
     const [basketshow, setbasketshow] = useState(true);
     const [baskethide, setbaskethide] = useState(true);
@@ -75,6 +75,8 @@ function MainComponent() {
     };
 
     const deleteFrombasket = (id) => {
+
+
         const Filtered = basket.filter((el) => {
             return el.id !== id;
         })
@@ -86,14 +88,41 @@ function MainComponent() {
 
     const deleteminus = (id) => {
 
+       
+        let a = basket
+
+        for (let i = a.length; i--;) {
+            if (a[i].id === id) {
+                a.splice(i, 1);
+                break
+            }
+        }
+
+        
+
+        setbasket([...a,...[]])
+        console.log(basket)
+
+        // basket.sort((a, b) => a.id > b.id ? 1 : -1);
+        // console.log(basket)
+
+        // let result = basket.findIndex(el => el.id !== id)
+        // console.log(result)
+        // let c = basket.splice(result,1 )
+
+        // console.log(c);
+
+        //допустим, что дан массив имён.
+        // Нам необходимо удалить из массива второй элемент.
+
+        // console.log(c); // => [ 'John', 'Darina', 'Kris' ]
 
 
+        // console.log(basket.indexOf(id)); // => 0
 
-        console.log(basket.indexOf(id)); // => 0
-  
 
         // показать скрыть корзину
-     
+
 
     };
     // пдобавить в корзине
@@ -146,9 +175,6 @@ function MainComponent() {
                         </div>
                     </div>
 
-                    {/* <div className='mx-5 my-2 hide '>
-                        <Slide />
-                    </div> */}
 
                 </div>
 
