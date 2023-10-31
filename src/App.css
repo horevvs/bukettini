@@ -13,9 +13,10 @@
 }
 .yandex{
   margin-top: 30px;
-  width: 30%;
-  height: 45%;
+  width: 40%;
+  height: 50%;
   background-color: #2B2828;
+ 
 }
 
 
@@ -32,8 +33,10 @@ body {
 .basketDisplay {
   width: 100%;
   height: 95vh;
-  background-color: red;
+  background-color:#FFFAFA;
   position: absolute;
+  font-weight: bold;
+  color:#2B2828;
   left: 0px;
   top: 0px;
   z-index: 1500;
@@ -55,6 +58,10 @@ body {
 .cursor {
   cursor: pointer
 }
+
+/* .cursor:hover {
+color: #282c3422;
+} */
 
 
 .footer {
@@ -122,6 +129,12 @@ body {
 .cardstyle {
   width: 300px;
   height: 300px;
+}
+
+.cardstylebasket {
+  width: 180px;
+  height: 180px;
+
 }
 
 .imagediv {
