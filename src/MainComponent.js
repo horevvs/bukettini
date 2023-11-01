@@ -22,7 +22,6 @@ function MainComponent() {
     const navigate = useNavigate();
 
     const [state, setState] = useState(catalog);
-    const [basketshow, setbasketshow] = useState(true);
     const [baskethide, setbaskethide] = useState(true);
     const [basket, setbasket] = useState([]);
 
@@ -40,16 +39,11 @@ function MainComponent() {
 
     // добавление в корзину
     const addtoBasket = (id) => {
-        // show2[id] = false
-        // setShow(show2)
-        // setShow(false)
         catalog[id].quantity++
-
         const Filtered = catalog.filter((el) => {
             return el.id === id;
         })
         setbasket([...basket, ...Filtered])
-        // if (basket === [] ) { setbasketshow(!basketshow) }
     }
 
     // переход с задержкой
@@ -81,7 +75,6 @@ function MainComponent() {
 
     // удалить 
     const deleteminus = (id) => {
-        console.log(basket)
         catalog[id].quantity--
         let a = basket
         for (let i = a.length; i--;) {
@@ -91,20 +84,16 @@ function MainComponent() {
             }
         }
         setbasket([...a, ...[]])
-        console.log(basket)
     };
 
     // прибавить в корзине
     const deletplus = (id) => {
-
         catalog[id].quantity++
-
         const Filtered = catalog.filter((el) => {
             return el.id === id;
         })
         setbasket([...basket, ...Filtered])
     };
-
 
 
     return (
@@ -120,12 +109,7 @@ function MainComponent() {
                     </div>
 
                     <div className={baskethide ? "baskethide" : " "}  >
-
                         <Basket basket={basket} handleClosebasket={handleClosebasket} deleteFrombasket={deleteFrombasket} deleteminus={deleteminus} deletplus={deletplus} />
-                        {/* {basketshow ? (<div className=' digital text-dark bg-white'>  {basket.length} </div>)
-                            : (
-                                <Basket basket={basket} handleClosebasket={handleClosebasket} deleteFrombasket={deleteFrombasket} deleteminus={deleteminus} deletplus={deletplus} />
-                            )} */}
                     </div>
                 </div>
             </div>
@@ -142,7 +126,6 @@ function MainComponent() {
                         <div className=" px-5 py-3 px-2 ">
                             <button className='transformtext '> <span>Для учителя</span></button>
                         </div>
-
                         <div className=" px-5 py-3">
                             <button className='transformtext '> <span>Товар в наличии</span></button>
                         </div>
@@ -150,8 +133,6 @@ function MainComponent() {
                             <button onClick={handleClick} className='transformtext '><span>Обратная связь</span></button>
                         </div>
                     </div>
-
-
                 </div>
 
                 <div className='d-flex  flex-wrap scroll justify-content-around  '>
@@ -162,9 +143,11 @@ function MainComponent() {
                                 <h5 className="bg-dark bg-opacity-75 text-white ">{item.name}</h5>
                                 <div className=' sas  bg-dark bg-opacity-75  d-flex flex-column  justify-content-center align-items-center '>
                                     <div className='border border-white text-white  bg-dark boxbutton text-center pt-2' onClick={() => addtoBasket(item.id)}>
-                                        <p className="font-weight-bold">  <SlBasket /> Добавить в корзину</p></div>
+                                        <p className="font-weight-bold">  <SlBasket /> Добавить в корзину</p>
+                                    </div>
                                     <div className=' border border-white text-dark   bg-white boxbutton text-center mt-5 pt-2' onClick={() => handleShow(item.id)}>
-                                        <p className="font-weight-bold"> <BsSearch className='mx-2' /> Просмотр</p></div>
+                                        <p className="font-weight-bold"> <BsSearch className='mx-2' /> Просмотр</p>
+                                    </div>
                                 </div>
                                 <Modal show={show[item.id]}>
                                     <Modal.Header className='bg-dark bg-opacity-25' onClick={() => handleClose(item.id)} closeButton>

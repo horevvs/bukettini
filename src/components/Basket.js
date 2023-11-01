@@ -7,7 +7,6 @@ import Modal from 'react-bootstrap/Modal';
 
 function Basket(props) {
 
-
     // убираем с массива повторяющиеся элементы
     let b = [...new Set(props.basket)]
 
@@ -17,12 +16,16 @@ function Basket(props) {
             return sum + currentAccount.price
         }, 0)
 
+    // ссостояние управляет открытием модльного окна в котором  формируеться корзина
     const [show, setShow] = useState(false);
     const openmodalmenu = () => {
         setShow(!show)
     };
 
-
+    const sendmessage = () => {
+        //эта функция должна будет формировать пост запрос, в видель обекта или какого еще вида данных, чтобы бэкенд сформированую заявку и направил в нужном формате на почту.
+        alert(' заявка отправлена')
+    };
 
     return (
         <div className="basketDisplay scrollbasket">
@@ -37,7 +40,6 @@ function Basket(props) {
                     <div key={item.id}>
                         <div className='d-flex mt-3   justify-content-between ' >
                             <img src={item.image} className="cursor cardstylebasket  border  border-4 border-dark mx-3" alt="..." />
-
                             <div >
                                 <div className='mx-2'> {item.name}   </div>
                                 <div className='mx-2'> цена: {item.price} руб. </div>
@@ -55,12 +57,13 @@ function Basket(props) {
                     </div>
                 )
             })}
+
             <button className='transformtext mx-4' onClick={openmodalmenu} > <span> Оформить заказ</span></button>
+
             <Modal show={show}>
                 <Modal.Header className='bg-dark bg-opacity-25' onClick={openmodalmenu} closeButton>Отправить  заявку </Modal.Header>
                 <Modal.Body>
                     <>
-
                         {b.map((item) => {
                             return (
                                 <div key={item.id}>
@@ -83,16 +86,14 @@ function Basket(props) {
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label"> Ваш номер, куда позвонить?</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                                <input type="text"   class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
                             </div>
-                            <button type="submit" class="btn btn-dark">Отправить заявку</button>
+                            <button type="submit" class="btn btn-dark" onClick={sendmessage} >Отправить заявку</button>
                         </form>
-
                     </>
                 </Modal.Body>
-                <Modal.Footer className='bg-dark bg-opacity-75'>
-                    <div className=''>Итого  {totalAmount}  рублей</div>
-
+                <Modal.Footer className='bg-dark bg-opacity-50'>
+                    <div >Итого {totalAmount}  рублей</div>
                 </Modal.Footer>
             </Modal>
         </div>

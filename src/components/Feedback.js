@@ -27,6 +27,11 @@ function Feedback() {
         }, 500);
     }
 
+    const sendmessage = () => {
+        //эта функция должна будет формировать пост запрос, в видель обекта или какого еще вида данных, чтобы бэкенд сформированую заявку и направил в нужном формате на почту.
+        alert(' заявка отправлена')
+    };
+
 
     return (
         <div className="App">
@@ -35,8 +40,8 @@ function Feedback() {
                 <div className='bodyloader '><span className="loader">  <img src={MainPageLogotip} width='300px' height='300px' alt='' />    </span>
                 </div>
             ) : (<div>
-                <div className="header d-flex  justify-content-around"> 
-                 <button onClick={handleClick} className='transformtext  mt-4'><span>Главное меню</span></button>
+                <div className="header d-flex  justify-content-around">
+                    <button onClick={handleClick} className='transformtext  mt-4'><span>Главное меню</span></button>
                     <span className='forspan '> Bukettini - лучший подарок человеку, у которого есть все! </span>
                     {/* <a href="https://wtsapp.online/89138719229"> написать в ватсап</a> */}
                 </div>
@@ -49,9 +54,9 @@ function Feedback() {
                         <p className='h5 text-white m-3 mt-5'>  Написать нам </p>
 
                         <div class="p-2">
-                            <form action="user.php" method="POST">
+                            <form >
                                 <textarea class="form-control " id="exampleFormControlTextarea1" rows="3"></textarea>
-                                <input type="submit" class="btn btn-light mt-3" value="Отправить" />
+                                <input type="submit" class="btn btn-light mt-3" value="Отправить"  onClick={sendmessage} />
                             </form>
                         </div>
                     </div>
@@ -71,10 +76,8 @@ function Feedback() {
                             <FullscreenControl />
                         </Map>
                     </YMaps>
-
-                   
                 </div>
-               
+
 
 
                 <div className="footer d-flex justify-content-between">
