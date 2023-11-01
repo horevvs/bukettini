@@ -56,7 +56,7 @@ function Feedback() {
                         <div class="p-2">
                             <form >
                                 <textarea class="form-control " id="exampleFormControlTextarea1" rows="3"></textarea>
-                                <input type="submit" class="btn btn-light mt-3" value="Отправить"  onClick={sendmessage} />
+                                <input type="submit" class="btn btn-light mt-3" value="Отправить" onClick={sendmessage} />
                             </form>
                         </div>
                     </div>
