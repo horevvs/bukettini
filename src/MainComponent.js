@@ -1,7 +1,7 @@
 import './App.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useState } from 'react';
+import { useState, } from 'react';
 import MainPageLogotip from './images/MainPageLogotip.png';
 
 
@@ -113,7 +113,7 @@ function MainComponent() {
 
                     <div className={baskethide ? "baskethide" : " "}  >
 
-                    <Basket basket={basket} handleClosebasket={handleClosebasket} deleteFrombasket={deleteFrombasket} deleteminus={deleteminus} deletplus={deletplus} />
+                        <Basket basket={basket} handleClosebasket={handleClosebasket} deleteFrombasket={deleteFrombasket} deleteminus={deleteminus} deletplus={deletplus} />
                         {/* {basketshow ? (<div className=' digital text-dark bg-white'>  {basket.length} </div>)
                             : (
                                 <Basket basket={basket} handleClosebasket={handleClosebasket} deleteFrombasket={deleteFrombasket} deleteminus={deleteminus} deletplus={deletplus} />
