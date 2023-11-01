@@ -7,13 +7,14 @@ import MainPageLogotip from './images/MainPageLogotip.png';
 
 import { BsSearch } from "react-icons/bs";
 import { SlBasket } from "react-icons/sl";
-import { AiFillInstagram } from "react-icons/ai";
-import { FaTelegram } from "react-icons/fa";
+import { SlSocialVkontakte } from "react-icons/sl";
+import { BsWhatsapp } from "react-icons/bs";
+
+
 import Modal from 'react-bootstrap/Modal';
 import catalog from "./catalog.json";
 import Basket from './components/Basket';
 import { useNavigate } from 'react-router-dom';
-
 
 function MainComponent() {
 
@@ -131,6 +132,9 @@ function MainComponent() {
                         <div className=" px-5 py-3 px-2 ">
                             <button className='transformtext '> <span>Женское</span></button>
                         </div>
+                        <div className=" px-5 py-3 px-2 ">
+                            <button className='transformtext '> <span>Для учителя</span></button>
+                        </div>
 
                         <div className=" px-5 py-3">
                             <button className='transformtext '> <span>Товар в наличии</span></button>
@@ -167,15 +171,13 @@ function MainComponent() {
                         )
                     })}
                 </div>
-
-
             </div>
 
             <div className="footer d-flex justify-content-between">
                 <div> Информация в футере </div>
-                <div className=" d-flex justify-content-between mx-4 bg-dark  ">
-                    <a className='px-2 text-white' href="http://anysite.ru" > <AiFillInstagram /></a>
-                    <a className='px-2 text-white' href="http://anysite.ru" > <FaTelegram /></a>
+                <div className=" d-flex justify-content-between mx-4   ">
+                    <a className='px-3 text-white  ' href="https://vk.com/bukettini" > <SlSocialVkontakte /></a>
+                    <a className='px-3 text-white ' href="https://wa.me/89138555807" > <BsWhatsapp /></a>
                 </div>
             </div>
         </div>

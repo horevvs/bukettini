@@ -28,9 +28,7 @@ function Basket(props) {
 
 
     const [show, setShow] = useState(false);
-
     const openmodalmenu = () => {
-
         setShow(!show)
     };
 
@@ -90,11 +88,11 @@ function Basket(props) {
                                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
                             </div>
                             <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Адрес доставки</label>
+                                <label for="exampleInputEmail1" class="form-label">Адрес доставки</label>
                                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
                             </div>
                             <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label"> Ваш номер, куда позвонить?</label>
+                                <label for="exampleInputEmail1" class="form-label"> Ваш номер, куда позвонить?</label>
                                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
                             </div>
                             <button type="submit" class="btn btn-dark">Отправить заявку</button>
