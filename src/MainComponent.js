@@ -43,6 +43,8 @@ function MainComponent() {
         // show2[id] = false
         // setShow(show2)
         // setShow(false)
+        catalog[id].quantity++
+
         const Filtered = catalog.filter((el) => {
             return el.id === id;
         })
@@ -79,6 +81,8 @@ function MainComponent() {
 
     // удалить 
     const deleteminus = (id) => {
+        console.log(basket)
+        catalog[id].quantity--
         let a = basket
         for (let i = a.length; i--;) {
             if (a[i].id === id) {
@@ -92,6 +96,9 @@ function MainComponent() {
 
     // прибавить в корзине
     const deletplus = (id) => {
+
+        catalog[id].quantity++
+
         const Filtered = catalog.filter((el) => {
             return el.id === id;
         })

@@ -17,16 +17,6 @@ function Basket(props) {
             return sum + currentAccount.price
         }, 0)
 
-    // добавляем количество выбранных одинаковых товаров
-    let result = {};
-    props.basket.forEach(function (a) {
-        if (result[a.id] !== undefined)
-            ++result[a.id];
-        else
-            result[a.id] = 1;
-    })
-
-
     const [show, setShow] = useState(false);
     const openmodalmenu = () => {
         setShow(!show)
@@ -52,7 +42,7 @@ function Basket(props) {
                                 <div className='mx-2'> {item.name}   </div>
                                 <div className='mx-2'> цена: {item.price} руб. </div>
                                 <button type="button" className="btn btn-dark btn-sm mx-2 px-2" onClick={() => props.deleteminus(item.id)}> - </button>
-                                количество - {result[item.id]} шт.
+                                количество - {item.quantity} шт.
                                 <button type="button" className="btn btn-dark btn-sm mx-2 px-2" onClick={() => props.deletplus(item.id)}> + </button>
                             </div>
 
@@ -76,7 +66,7 @@ function Basket(props) {
                                 <div key={item.id}>
                                     <div className='d-flex mt-3   justify-content-between ' >
                                         <div className='mx-2'> {item.name}   </div>
-                                        <div >количество - {result[item.id]} шт.</div>
+                                        <div >количество -{item.quantity} шт.</div>
                                     </div>
                                     <hr className='border border-4 border-dark mx-3' ></hr>
                                 </div>
