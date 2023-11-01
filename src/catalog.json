@@ -4,495 +4,565 @@
         "image": "mens/1.jpg",
         "price": 159,
         "name": "food1",
-        "category": "mens"
+        "category": "mens",
+        "quantity": 0
     },
     {
         "id": 1,
         "image": "/mens/2.jpg",
         "price": 170,
         "name": "food2",
-        "category": "mens"
+        "category": "mens",
+        "quantity": 0
     },
     {
         "id": 2,
         "image": "/mens/3.jpg",
         "price": 322,
         "name": "food3",
-        "category": "mens"
+        "category": "mens",
+        "quantity": 0
     },
     {
         "id": 3,
         "image": "/mens/4.jpg",
         "price": 272,
         "name": "food4",
-        "category": "mens"
+        "category": "mens",
+        "quantity": 0
     },
     {
         "id": 4,
         "image": "/mens/5.jpg",
         "price": 225,
         "name": "food5",
-        "category": "mens"
+        "category": "mens",
+        "quantity": 0
     },
     {
         "id": 5,
         "image": "/mens/6.jpg",
         "price": 200,
         "name": "food6",
-        "category": "mens"
+        "category": "mens",
+        "quantity": 0
     },
     {
         "id": 6,
         "image": "/mens/7.jpg",
         "price": 200,
         "name": "food7",
-        "category": "mens"
+        "category": "mens",
+        "quantity": 0
     },
     {
         "id": 7,
         "image": "/mens/8.jpg",
         "price": 200,
         "name": "food8",
-        "category": "mens"
+        "category": "mens",
+        "quantity": 0
     },
     {
         "id": 8,
         "image": "/mens/9.jpg",
         "price": 200,
         "name": "food9",
-        "category": "mens"
+        "category": "mens",
+        "quantity": 0
     },
     {
         "id": 9,
         "image": "/mens/10.jpg",
         "price": 200,
         "name": "food10",
-        "category": "mens"
+        "category": "mens",
+        "quantity": 0
     },
     {
         "id": 10,
         "image": "/mens/11.jpg",
         "price": 200,
         "name": "food11",
-        "category": "mens"
+        "category": "mens",
+        "quantity": 0
     },
     {
         "id": 11,
         "image": "/mens/12.jpg",
         "price": 200,
         "name": "food12",
-        "category": "mens"
+        "category": "mens",
+        "quantity": 0
     },
     {
         "id": 12,
         "image": "/mens/13.jpg",
         "name": "food13",
-        "category": "mens"
+        "category": "mens",
+        "quantity": 0
     },
     {
         "id": 13,
         "image": "/mens/14.jpg",
         "price": 200,
         "name": "food14",
-        "category": "mens"
+        "category": "mens",
+        "quantity": 0
     },
     {
         "id": 14,
         "image": "/mens/15.jpg",
         "price": 200,
         "name": "food15",
-        "category": "mens"
+        "category": "mens",
+        "quantity": 0
     },
     {
         "id": 15,
         "image": "/mens/16.jpg",
         "price": 200,
         "name": "food16",
-        "category": "mens"
+        "category": "mens",
+        "quantity": 0
     },
     {
         "id": 16,
         "image": "/mens/17.jpg",
         "price": 200,
         "name": "food17",
-        "category": "mens"
+        "category": "mens",
+        "quantity": 0
     },
     {
         "id": 17,
         "image": "/mens/18.jpg",
         "price": 200,
         "name": "food18",
-        "category": "mens"
+        "category": "mens",
+        "quantity": 0
     },
     {
         "id": 18,
         "image": "/mens/19.jpg",
         "price": 200,
         "name": "food19",
-        "category": "mens"
+        "category": "mens",
+        "quantity": 0
     },
     {
         "id": 19,
         "image": "/mens/20.jpg",
         "name": "food20",
-        "category": "mens"
+        "category": "mens",
+        "quantity": 0
     },
     {
         "id": 20,
         "image": "/mens/21.jpg",
         "price": 200,
         "name": "food21",
-        "category": "mens"
+        "category": "mens",
+        "quantity": 0
     },
     {
         "id": 21,
         "image": "/mens/22.jpg",
         "price": 200,
         "name": "food22",
-        "category": "mens"
+        "category": "mens",
+        "quantity": 0
     },
     {
         "id": 22,
         "image": "/womens/23.jpg",
         "price": 200,
         "name": "food23",
-        "category": "womens"
+        "category": "womens",
+        "quantity": 0
     },
     {
         "id": 23,
         "image": "/womens/24.jpg",
         "price": 200,
         "name": "food24",
-        "category": "womens"
+        "category": "womens",
+        "quantity": 0
     },
     {
         "id": 24,
         "image": "/womens/25.jpg",
         "price": 200,
         "name": "food25",
-        "category": "womens"
+        "category": "womens",
+        "quantity": 0
     },
     {
         "id": 25,
         "image": "/womens/26.jpg",
         "price": 200,
         "name": "food26",
-        "category": "womens"
+        "category": "womens",
+        "quantity": 0
     },
     {
         "id": 26,
         "image": "/womens/27.jpg",
         "price": 200,
         "name": "food27",
-        "category": "womens"
+        "category": "womens",
+        "quantity": 0
     },
     {
         "id": 27,
         "image": "/womens/28.jpg",
         "price": 200,
         "name": "food28",
-        "category": "womens"
+        "category": "womens",
+        "quantity": 0
     },
     {
         "id": 28,
         "image": "/womens/29.jpg",
         "price": 200,
         "name": "food29",
-        "category": "womens"
+        "category": "womens",
+        "quantity": 0
     },
     {
         "id": 29,
         "image": "/womens/30.jpg",
         "price": 200,
         "name": "food30",
-        "category": "womens"
+        "category": "womens",
+        "quantity": 0
     },
     {
         "id": 30,
         "image": "/womens/31.jpg",
         "price": 200,
         "name": "food31",
-        "category": "womens"
+        "category": "womens",
+        "quantity": 0
     },
     {
         "id": 31,
         "image": "/womens/32.jpg",
         "price": 200,
         "name": "food32",
-        "category": "womens"
+        "category": "womens",
+        "quantity": 0
     },
     {
         "id": 32,
         "image": "/womens/33.jpg",
         "price": 200,
         "name": "food33",
-        "category": "womens"
+        "category": "womens",
+        "quantity": 0
     },
     {
         "id": 33,
         "image": "/womens/34.jpg",
         "price": 200,
         "name": "food34",
-        "category": "womens"
+        "category": "womens",
+        "quantity": 0
     },
     {
         "id": 34,
         "image": "/womens/35.jpg",
         "price": 200,
         "name": "food35",
-        "category": "womens"
+        "category": "womens",
+        "quantity": 0
     },
     {
         "id": 35,
         "image": "/womens/36.jpg",
         "price": 200,
         "name": "food36",
-        "category": "womens"
+        "category": "womens",
+        "quantity": 0
     },
     {
         "id": 36,
         "image": "/womens/37.jpg",
         "price": 200,
         "name": "food37",
-        "category": "womens"
+        "category": "womens",
+        "quantity": 0
     },
     {
         "id": 37,
         "image": "/womens/38.jpg",
         "price": 200,
         "name": "food38",
-        "category": "womens"
+        "category": "womens",
+        "quantity": 0
     },
     {
         "id": 38,
         "image": "/womens/39.jpg",
         "price": 200,
         "name": "food39",
-        "category": "womens"
+        "category": "womens",
+        "quantity": 0
     },
     {
         "id": 39,
         "image": "/womens/40.jpg",
         "price": 200,
         "name": "food40",
-        "category": "womens"
+        "category": "womens",
+        "quantity": 0
     },
     {
         "id": 40,
         "image": "/womens/41.jpg",
         "price": 200,
         "name": "food41",
-        "category": "womens"
+        "category": "womens",
+        "quantity": 0
     },
     {
         "id": 41,
         "image": "/womens/42.jpg",
         "price": 200,
         "name": "food42",
-        "category": "womens"
+        "category": "womens",
+        "quantity": 0
     },
     {
         "id": 42,
         "image": "/teachers/43.jpg",
         "price": 200,
         "name": "food43",
-        "category": "teachers"
+        "category": "teachers",
+        "quantity": 0
     },
     {
         "id": 43,
         "image": "/teachers/44.jpg",
         "price": 200,
         "name": "food44",
-        "category": "teachers"
+        "category": "teachers",
+        "quantity": 0
     },
     {
         "id": 44,
         "image": "/teachers/45.jpg",
         "price": 200,
         "name": "food45",
-        "category": "teachers"
+        "category": "teachers",
+        "quantity": 0
     },
     {
         "id": 45,
         "image": "/teachers/46.jpg",
         "price": 200,
         "name": "food46",
-        "category": "teachers"
+        "category": "teachers",
+        "quantity": 0
     },
     {
         "id": 46,
         "image": "/teachers/47.jpg",
         "price": 200,
         "name": "food47",
-        "category": "teachers"
+        "category": "teachers",
+        "quantity": 0
     },
     {
         "id": 47,
         "image": "/teachers/48.jpg",
         "price": 200,
         "name": "food48",
-        "category": "teachers"
+        "category": "teachers",
+        "quantity": 0
     },
     {
         "id": 48,
         "image": "/teachers/49.jpg",
         "price": 200,
         "name": "food49",
-        "category": "teachers"
+        "category": "teachers",
+        "quantity": 0
     },
     {
         "id": 49,
         "image": "/teachers/50.jpg",
         "price": 200,
         "name": "food50",
-        "category": "teachers"
+        "category": "teachers",
+        "quantity": 0
     },
     {
         "id": 50,
         "image": "/teachers/51.jpg",
         "price": 200,
         "name": "food51",
-        "category": "teachers"
+        "category": "teachers",
+        "quantity": 0
     },
     {
         "id": 51,
         "image": "/teachers/52.jpg",
         "price": 200,
         "name": "food52",
-        "category": "teachers"
+        "category": "teachers",
+        "quantity": 0
     },
     {
         "id": 52,
         "image": "/teachers/53.jpg",
         "price": 200,
         "name": "food53",
-        "category": "teachers"
+        "category": "teachers",
+        "quantity": 0
     },
     {
         "id": 53,
         "image": "/teachers/54.jpg",
         "price": 200,
         "name": "food54",
-        "category": "teachers"
+        "category": "teachers",
+        "quantity": 0
     },
     {
         "id": 54,
         "image": "/teachers/55.jpg",
         "price": 200,
         "name": "food54",
-        "category": "teachers"
+        "category": "teachers",
+        "quantity": 0
     },
     {
         "id": 55,
         "image": "/teachers/56.jpg",
         "price": 200,
         "name": "food56",
-        "category": "teachers"
+        "category": "teachers",
+        "quantity": 0
     },
     {
         "id": 56,
         "image": "/teachers/57.jpg",
         "price": 200,
         "name": "food57",
-        "category": "teachers"
+        "category": "teachers",
+        "quantity": 0
     },
     {
         "id": 57,
         "image": "/teachers/58.jpg",
         "price": 200,
         "name": "food58",
-        "category": "teachers"
+        "category": "teachers",
+        "quantity": 0
     },
     {
         "id": 58,
         "image": "/teachers/59.jpg",
         "price": 200,
         "name": "food59",
-        "category": "teachers"
+        "category": "teachers",
+        "quantity": 0
     },
     {
         "id": 59,
         "image": "/teachers/60.jpg",
         "price": 200,
         "name": "food60",
-        "category": "teachers"
+        "category": "teachers",
+        "quantity": 0
     },
     {
         "id": 60,
         "image": "/teachers/61.jpg",
         "price": 200,
         "name": "food61",
-        "category": "teachers"
+        "category": "teachers",
+        "quantity": 0
     },
     {
         "id": 61,
         "image": "/teachers/62.jpg",
         "price": 200,
         "name": "food62",
-        "category": "teachers"
+        "category": "teachers",
+        "quantity": 0
     },
     {
         "id": 62,
         "image": "/teachers/63.jpg",
         "price": 200,
         "name": "food63",
-        "category": "teachers"
+        "category": "teachers",
+        "quantity": 0
     },
     {
         "id": 63,
         "image": "/teachers/64.jpg",
         "price": 200,
         "name": "food64",
-        "category": "teachers"
+        "category": "teachers",
+        "quantity": 0
     },
     {
         "id": 64,
         "image": "/teachers/65.jpg",
         "price": 200,
         "name": "food65",
-        "category": "teachers"
+        "category": "teachers",
+        "quantity": 0
     },
     {
         "id": 65,
         "image": "/teachers/66.jpg",
         "price": 200,
         "name": "food66",
-        "category": "teachers"
+        "category": "teachers",
+        "quantity": 0
     },
     {
         "id": 66,
         "image": "/teachers/67.jpg",
         "price": 200,
         "name": "food68",
-        "category": "teachers"
+        "category": "teachers",
+        "quantity": 0
     },
     {
         "id": 67,
         "image": "/teachers/68.jpg",
         "price": 200,
         "name": "food68",
-        "category": "teachers"
+        "category": "teachers",
+        "quantity": 0
     },
     {
         "id": 68,
         "image": "/teachers/69.jpg",
         "price": 200,
         "name": "food69",
-        "category": "teachers"
+        "category": "teachers",
+        "quantity": 0
     },
     {
         "id": 69,
         "image": "/teachers/70.jpg",
         "price": 200,
         "name": "food70",
-        "category": "teachers"
+        "category": "teachers",
+        "quantity": 0
     },
     {
         "id": 70,
         "image": "/teachers/71.jpg",
         "price": 200,
         "name": "food71",
-        "category": "teachers"
+        "category": "teachers",
+        "quantity": 0
     }
-
 ]
