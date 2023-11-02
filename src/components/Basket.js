@@ -40,7 +40,7 @@ function Basket(props) {
         // let ob2 = Object.assign(resultForfetch2, obj);
         let result = JSON.stringify(b)
         console.log(result)
-        // alert(resultForfetch)
+     alert(result)
     };
 
     return (

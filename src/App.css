@@ -25,7 +25,7 @@ body {
 }
 
 .mainbackground {
-  background-image: url(./images/mainBackground.jpg);
+  background-image: url(./images/fon2.jpg);
   height: 100vh;
   background-size: cover;
 }
@@ -329,13 +329,16 @@ color: #282c3422;
 
 .sas {
   position: relative;
-  bottom: 340px;
+  bottom: 300px;
   width: 300px;
-  height: 330px;
+  height: 300px;
   opacity: 0;
-  margin-bottom: -330px;
+  margin-bottom: -280px;
 
 }
+
+
+
 
 
 .sas p {

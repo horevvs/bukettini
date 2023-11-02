@@ -4,12 +4,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState, } from 'react';
 import MainPageLogotip from './images/MainPageLogotip.png';
 
-
 import { BsSearch } from "react-icons/bs";
 import { SlBasket } from "react-icons/sl";
 import { SlSocialVkontakte } from "react-icons/sl";
 import { BsWhatsapp } from "react-icons/bs";
-
 
 import Modal from 'react-bootstrap/Modal';
 import catalog from "./catalog.json";
@@ -108,6 +106,9 @@ function MainComponent() {
             <div className="header d-flex  justify-content-between">
                 <img src={MainPageLogotip} width='80px' height='80px' className='animation' alt='' />
                 <span className='forspan'> Bukettini - лучший подарок человеку, у которого есть все! </span>
+                <div className="px-5 py-3">
+                            <button onClick={handleClick} className='transformtext '><span>Обратная связь</span></button>
+                        </div>
                 <div className='basket'>
 
                     <div> <SlBasket className='mx-4 my-5  ' />
@@ -136,9 +137,9 @@ function MainComponent() {
                         <div className=" px-5 py-3">
                             <button className='transformtext '> <span>Товар в наличии</span></button>
                         </div>
-                        <div className="px-5 py-3">
+                        {/* <div className="px-5 py-3">
                             <button onClick={handleClick} className='transformtext '><span>Обратная связь</span></button>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 
@@ -147,7 +148,7 @@ function MainComponent() {
                         return (
                             <div key={item.id} className='mb-2 carts justify-content-center' >
                                 <img onClick={() => handleShow(item.id)} src={item.image} className=" cardstyle cursor  border  border-5 border-white" alt="..." />
-                                <h5 className="bg-dark bg-opacity-75 text-white ">{item.name}</h5>
+                                {/* <h5 className="bg-dark bg-opacity-75 text-white ">{item.name}</h5> */}
                                 <div className=' sas  bg-dark bg-opacity-75  d-flex flex-column  justify-content-center align-items-center '>
                                     <div className='border border-white text-white  bg-dark boxbutton text-center pt-2' onClick={() => addtoBasket(item.id)}>
                                         <p className="font-weight-bold">  <SlBasket /> Добавить в корзину</p>
