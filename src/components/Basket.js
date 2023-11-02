@@ -13,7 +13,7 @@ function Basket(props) {
 
     // убираем с массива повторяющиеся элементы
     let b = [...new Set(props.basket)]
-
+    console.log(b);
     // считаем сумму всех товаров вставляем
     const totalAmount = props.basket.reduce(
         function (sum, currentAccount) {
@@ -27,17 +27,20 @@ function Basket(props) {
     };
 
     const sendmessage = (totalAmount) => {
-        // прокинуть с основного состояния массив и с него уже в  obj скинуть оставшиееся 
-
+        // let resultForfetch2 = JSON.stringify(b)
+        // // // alert(resultForfetch2)
         let obj = {
             name: `${inputs}`,
             adress: `${adress}`,
             phone: `${phone}`,
             totalAmoun: `${totalAmount}`,
         }
-        let resultForfetch = JSON.stringify(obj)
-        alert(resultForfetch)
-
+        b.push(obj)
+        // let ob2 = Object.assign(resultForfetch2, obj);
+        // let ob2 = Object.assign(resultForfetch2, obj);
+        let result = JSON.stringify(b)
+        console.log(result)
+        // alert(resultForfetch)
     };
 
     return (
@@ -107,6 +110,7 @@ function Basket(props) {
                 </Modal.Body>
                 <Modal.Footer className='bg-dark bg-opacity-50'>
                     <div >Итого {totalAmount}  рублей</div>
+                    <button class="btn btn-dark" onClick={() => sendmessage(totalAmount)} >Отправить заявку</button>
                 </Modal.Footer>
             </Modal>
         </div>
