@@ -66,7 +66,10 @@ function Feedback() {
                     <div className='yandex d-none d-sm-block mx-5 py-2 border border-4 border-white'>
                         <p className='h5 text-white m-3 '> <BsTelephoneFill className='h5 text-white' /> +7-913-855-58-07. </p>
                         <p className='h5 text-white m-3'>  ул. Алтайская д. 20, ​1 этаж. <br />Вход со стороны  Красноамейской. </p>
+                        <p className='h5 text-white m-3'>   Ежедневно с 10:00 до 18:00. </p>
+
                         <p className='h5 text-white m-3 mt-5'>  Написать нам </p>
+
 
                         <div class="p-2">
                             <form >
