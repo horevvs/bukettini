@@ -2,8 +2,11 @@
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ImCross } from "react-icons/im";
+import { BsFillTrashFill } from "react-icons/bs";
 import { useState, } from 'react';
 import Modal from 'react-bootstrap/Modal';
+
+
 
 function Basket(props) {
 
@@ -40,7 +43,7 @@ function Basket(props) {
         // let ob2 = Object.assign(resultForfetch2, obj);
         let result = JSON.stringify(b)
         console.log(result)
-     alert(result)
+        alert(result)
     };
 
     return (
@@ -65,7 +68,7 @@ function Basket(props) {
                             </div>
 
                             <div className='mx-2'>
-                                <ImCross className='mx-5 mt-2 cursor ' onClick={() => props.deleteFrombasket(item.id)} />
+                                <BsFillTrashFill className='mx-5 mt-5  cursor ' onClick={() => props.deleteFrombasket(item.id)} />
                             </div>
 
                         </div>
@@ -77,7 +80,7 @@ function Basket(props) {
             <button className='transformtext mx-4' onClick={openmodalmenu} > <span> Оформить заказ</span></button>
 
             <Modal show={show}>
-                <Modal.Header className='bg-dark bg-opacity-25' onClick={openmodalmenu} closeButton>Отправить  заявку </Modal.Header>
+                <Modal.Header className='bg-dark bg-opacity-75' onClick={openmodalmenu} closeButton>Отправить  заявку </Modal.Header>
                 <Modal.Body>
                     <>
                         {b.map((item) => {
@@ -85,9 +88,9 @@ function Basket(props) {
                                 <div key={item.id}>
                                     <div className='d-flex mt-3   justify-content-between ' >
                                         <div className='mx-2'> {item.name}   </div>
-                                        <div >количество -{item.quantity} шт.</div>
+                                        <div >количество  - {item.quantity} шт.</div>
                                     </div>
-                                    <hr className='border border-4 border-dark mx-3' ></hr>
+                                    <hr className='border border-2 border-dark' ></hr>
                                 </div>
                             )
                         })}
@@ -105,12 +108,23 @@ function Basket(props) {
                                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={(e) => setphone(e.target.value)} />
                             </div>
                             <button class="btn btn-dark" onClick={() => sendmessage(totalAmount)} >Отправить заявку</button>
+                            {/* <div class="form-check form-check-inline mx-2">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" />
+                                <label class="form-check-label" for="inlineCheckbox1">оплата по карте</label>
+                            </div>
+
+                            <div class="form-check form-check-inline  btn-secondary">
+                                <input class="form-check-input btn-secondary" type="checkbox" id="inlineCheckbox1" value="option1" />
+                                <label class="form-check-label btn-secondary" for="inlineCheckbox1">наличными</label>
+                            </div> */}
+
+
                         </form>
                     </>
                 </Modal.Body>
                 <Modal.Footer className='bg-dark bg-opacity-50'>
-                    <div >Итого {totalAmount}  рублей</div>
-                    <button class="btn btn-dark" onClick={() => sendmessage(totalAmount)} >Отправить заявку</button>
+                    <div >Итого: {totalAmount}  руб.</div>
+                    {/* <button class="btn btn-dark" onClick={() => sendmessage(totalAmount)} >Отправить заявку</button> */}
                 </Modal.Footer>
             </Modal>
         </div>

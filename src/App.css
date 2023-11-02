@@ -33,7 +33,7 @@ body {
 .basketDisplay {
   width: 100%;
   height: 95vh;
-  background-color:#FFFAFA;
+  background-image: url(./images/fon2.jpg);
   position: absolute;
   font-weight: bold;
   color:#2B2828;
@@ -193,10 +193,12 @@ color: #282c3422;
 }
 
 .transformtext {
+  font-size: 18px;
+  line-height: 25px;
   width: 170px;
   background-color: #282c34;
-  height: 70px;
-  line-height: 30px;
+  height: 60px;
+  line-height: 20px;
   font-family: sans-serif;
   color: white;
   border: 4px solid white;
@@ -334,11 +336,7 @@ color: #282c3422;
   height: 300px;
   opacity: 0;
   margin-bottom: -280px;
-
 }
-
-
-
 
 
 .sas p {
