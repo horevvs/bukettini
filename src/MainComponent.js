@@ -39,11 +39,18 @@ function MainComponent() {
 
     // добавление в корзину
     const addtoBasket = (id) => {
+
         catalog[id].quantity++
+
         const Filtered = catalog.filter((el) => {
             return el.id === id;
         })
+
+        // тимлидушка говорит как надо сделать, чтобы массив сюда падал. как в баскете примере let b = [...new Set(props.basket)]
+
         setbasket([...basket, ...Filtered])
+
+        console.log(basket)
     }
 
     // переход с задержкой
@@ -167,7 +174,7 @@ function MainComponent() {
                 <div> Информация в футере </div>
                 <div className=" d-flex justify-content-between mx-4   ">
                     <a className='px-3 text-white  ' href="https://vk.com/bukettini" > <SlSocialVkontakte /></a>
-                    <a className='px-3 text-white ' href="https://wa.me/89138555807" > <BsWhatsapp /></a>
+                    <a className='px-3 text-white ' href="https://wa.me/89138208610" > <BsWhatsapp /></a>
                 </div>
             </div>
         </div>

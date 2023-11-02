@@ -7,6 +7,10 @@ import Modal from 'react-bootstrap/Modal';
 
 function Basket(props) {
 
+    const [adress, setadress] = useState([])
+    const [phone, setphone] = useState([])
+    const [inputs, setInputs] = useState([])
+
     // убираем с массива повторяющиеся элементы
     let b = [...new Set(props.basket)]
 
@@ -22,9 +26,18 @@ function Basket(props) {
         setShow(!show)
     };
 
-    const sendmessage = () => {
-        //эта функция должна будет формировать пост запрос, в видель обекта или какого еще вида данных, чтобы бэкенд сформированую заявку и направил в нужном формате на почту.
-        alert(' заявка отправлена')
+    const sendmessage = (totalAmount) => {
+        // прокинуть с основного состояния массив и с него уже в  obj скинуть оставшиееся 
+
+        let obj = {
+            name: `${inputs}`,
+            adress: `${adress}`,
+            phone: `${phone}`,
+            totalAmoun: `${totalAmount}`,
+        }
+        let resultForfetch = JSON.stringify(obj)
+        alert(resultForfetch)
+
     };
 
     return (
@@ -41,7 +54,7 @@ function Basket(props) {
                         <div className='d-flex mt-3   justify-content-between ' >
                             <img src={item.image} className="cursor cardstylebasket  border  border-4 border-dark mx-3" alt="..." />
                             <div >
-                                <div className='mx-2'> {item.name}   </div>
+                                <div className='mx-2' id> {item.name}   </div>
                                 <div className='mx-2'> цена: {item.price} руб. </div>
                                 <button type="button" className="btn btn-dark btn-sm mx-2 px-2" onClick={() => props.deleteminus(item.id)}> - </button>
                                 количество - {item.quantity} шт.
@@ -78,17 +91,17 @@ function Basket(props) {
                         <form>
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Как вас зовут уважаемый/ая?</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={(e) => setInputs(e.target.value)} />
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Адрес доставки</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={(e) => setadress(e.target.value)} />
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label"> Ваш номер, куда позвонить?</label>
-                                <input type="text"   class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={(e) => setphone(e.target.value)} />
                             </div>
-                            <button type="submit" class="btn btn-dark" onClick={sendmessage} >Отправить заявку</button>
+                            <button class="btn btn-dark" onClick={() => sendmessage(totalAmount)} >Отправить заявку</button>
                         </form>
                     </>
                 </Modal.Body>

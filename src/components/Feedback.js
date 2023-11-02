@@ -11,6 +11,8 @@ import { useNavigate } from 'react-router-dom';
 
 function Feedback() {
 
+    const [inputs, setInputs] = useState([])
+
     const [loading, setLoading] = useState(false);
     useEffect(() => {
         setLoading(true);
@@ -28,8 +30,21 @@ function Feedback() {
     }
 
     const sendmessage = () => {
-        //эта функция должна будет формировать пост запрос, в видель обекта или какого еще вида данных, чтобы бэкенд сформированую заявку и направил в нужном формате на почту.
-        alert(' заявка отправлена')
+        let object = {
+            textmessage: `${inputs}`,
+        }
+        let resultForfetch = JSON.stringify(object)
+
+        alert(resultForfetch)
+
+        // let url = `https://`
+        // fetch(url, {
+        //     method: 'PUT',
+        //     body: resultForfetch,
+        //     headers: {
+        //         'Content-type': 'application/json; charset=UTF-8',
+        //     }
+        // })
     };
 
 
@@ -55,7 +70,7 @@ function Feedback() {
 
                         <div class="p-2">
                             <form >
-                                <textarea class="form-control " id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <textarea class="form-control " id="exampleFormControlTextarea1" rows="3" onChange={(e) => setInputs(e.target.value)}></textarea>
                                 <input type="submit" class="btn btn-light mt-3" value="Отправить" onClick={sendmessage} />
                             </form>
                         </div>
