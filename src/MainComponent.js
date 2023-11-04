@@ -107,8 +107,8 @@ function MainComponent() {
                 <img src={MainPageLogotip} width='80px' height='80px' className='animation' alt='' />
                 <span className='forspan'> Bukettini - лучший подарок человеку, у которого есть все! </span>
                 <div className="px-5 py-3">
-                            <button onClick={handleClick} className='transformtext '><span>Обратная связь</span></button>
-                        </div>
+                    <button onClick={handleClick} className='transformtext '><span>Обратная связь</span></button>
+                </div>
                 <div className='basket'>
 
                     <div> <SlBasket className='mx-4 my-5  ' />
