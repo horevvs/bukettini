@@ -29,21 +29,28 @@ function Basket(props) {
         setShow(!show)
     };
 
-    const sendmessage = (totalAmount) => {
-        // let resultForfetch2 = JSON.stringify(b)
-        // // // alert(resultForfetch2)
-        let obj = {
-            name: `${inputs}`,
-            adress: `${adress}`,
-            phone: `${phone}`,
-            totalAmoun: `${totalAmount}`,
+    const sendmessage = () => {
+        // создаем json form
+        let form = {
+            form: {
+                name: `${inputs}`,
+                adress: `${adress}`,
+                phone: `${phone}`,
+            }
         }
-        b.push(obj)
-        // let ob2 = Object.assign(resultForfetch2, obj);
-        // let ob2 = Object.assign(resultForfetch2, obj);
-        let result = JSON.stringify(b)
-        console.log(result)
-        alert(result)
+           // фильтруем получаем массив объекто как нам надо
+        let Filtered = b.map((item) => {
+            return ({ id: item.id, quantity: item.quantity })
+        } )
+        // создаем объек отфильтрованных значений
+        let items = {
+            items: Filtered
+        }
+
+        let abc = Object.assign(items,form);
+        let res = JSON.stringify(abc)
+        console.log(res)
+       
     };
 
     return (
