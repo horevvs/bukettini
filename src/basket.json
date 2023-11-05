@@ -1,6 +1,27 @@
 
 
 
-[{"id":5,"image":"/mens/6.jpg","price":200,"name":"food6","category":"mens","quantity":2},
-{"id":4,"image":"/mens/5.jpg","price":225,"name":"food5","category":"mens","quantity":2},
-{"name":"печкин","adress":"на деревню дедушке","phone":"12-34-56-78","totalAmoun":"850"}]
+
+
+{
+    "items": [
+      {
+        "id": 5,
+        "quantity": 2
+      },
+      {
+        "id": 4,
+        "quantity": 2
+      }
+    ],
+    "form": {
+      "name": "печкин",
+      "adress": "на деревню дедушке",
+      "phone": "12-34-56-78"
+    }
+  }
+
+
+
+
+  
