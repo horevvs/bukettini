@@ -65,6 +65,12 @@ function MainComponent() {
         setShow(show2)
     };
 
+    // construct url and update state items
+    const findItemsByIdAndRefreshState = (id) => {
+        let url = '/items?group_id=' + id;
+        fetch
+    }
+
     // показать скрыть корзину
     const handleClosebasket = () => {
         return setbaskethide(!baskethide)
@@ -112,7 +118,7 @@ function MainComponent() {
                 <div className='basket'>
 
                     <div> <SlBasket className='mx-4 my-5  ' />
-                        <span className=' mx-3  '>
+                            <span className=' mx-3  '>
                             {basket.length === 0 ? (null) : (<div onClick={handleClosebasket} className='digital text-dark bg-white'>  {basket.length} </div>)}</span>
                     </div>
 
@@ -125,21 +131,11 @@ function MainComponent() {
             <div className='mainbackground   '>
                 <div className='d-flex justify-content-center '>
                     <div className='d-flex  flex-wrap fustify justify-content-center'>
-                        <div className=" px-5 py-3">
-                            <button className='transformtext '> <span>Мужское</span></button>
+                        {groups.map((group) => {
+                            <div className=" px-5 py-3">
+                            <button onClick={ findItemsByIdAndRefreshState(group.id)} className='transformtext '> <span>{group.name}</span></button>
                         </div>
-                        <div className=" px-5 py-3 px-2 ">
-                            <button className='transformtext '> <span>Женское</span></button>
-                        </div>
-                        <div className=" px-5 py-3 px-2 ">
-                            <button className='transformtext '> <span>Для учителя</span></button>
-                        </div>
-                        <div className=" px-5 py-3">
-                            <button className='transformtext '> <span>Товар в наличии</span></button>
-                        </div>
-                        {/* <div className="px-5 py-3">
-                            <button onClick={handleClick} className='transformtext '><span>Обратная связь</span></button>
-                        </div> */}
+                        })}
                     </div>
                 </div>
 
