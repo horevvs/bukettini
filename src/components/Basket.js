@@ -10,7 +10,7 @@ import Modal from 'react-bootstrap/Modal';
 
 function Basket(props) {
 
-    const [adress, setadress] = useState([])
+    const [address, setaddress] = useState([])
     const [phone, setphone] = useState([])
     const [inputs, setInputs] = useState([])
 
@@ -34,7 +34,7 @@ function Basket(props) {
         let form = {
             form: {
                 name: `${inputs}`,
-                adress: `${adress}`,
+                address: `${address}`,
                 phone: `${phone}`,
             }
         }
@@ -108,7 +108,7 @@ function Basket(props) {
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Адрес доставки</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={(e) => setadress(e.target.value)} />
+                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={(e) => setaddress(e.target.value)} />
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label"> Ваш номер, куда позвонить?</label>
@@ -131,7 +131,7 @@ function Basket(props) {
                 </Modal.Body>
                 <Modal.Footer className='bg-dark bg-opacity-50'>
                     <div >Итого: {totalAmount}  руб.</div>
-                    {/* <button class="btn btn-dark" onClick={() => sendmessage(totalAmount)} >Отправить заявку</button> */}
+                    <button class="btn btn-dark" onClick={() => sendmessage(totalAmount)} >Отправить заявку</button>
                 </Modal.Footer>
             </Modal>
         </div>
