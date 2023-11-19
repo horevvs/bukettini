@@ -1,7 +1,7 @@
 import './App.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useState, } from 'react';
+import { useState, useEffect } from 'react';
 import MainPageLogotip from './images/MainPageLogotip.png';
 
 import { BsSearch } from "react-icons/bs";
@@ -15,15 +15,33 @@ import Basket from './components/Basket';
 import { useNavigate } from 'react-router-dom';
 
 function MainComponent() {
+    const [state, setState] = useState([]);
+    const [groups, setGroups] = useState([]);
+
+
+
+
+    useEffect(() => {
+        fetch('https://flowers.birb.pro/api/items')
+            .then((response) => response.json())
+            .then((json) => {
+                setState(json.data)
+            });
+
+
+    }, [])
+
+
+
 
     //  создаем хук чтобы организовать навигацию
     const navigate = useNavigate();
 
-    const [state, setState] = useState(catalog);
+
     const [baskethide, setbaskethide] = useState(true);
     const [basket, setbasket] = useState([]);
 
-    let massiv = Array(catalog.length)
+    let massiv = Array(state.length)
     massiv.fill(false)
     const [show, setShow] = useState(massiv);
     const [show2, setShow2] = useState([]);
@@ -38,17 +56,16 @@ function MainComponent() {
     // добавление в корзину
     const addtoBasket = (id) => {
 
-        catalog[id].quantity++
-
-        const Filtered = catalog.filter((el) => {
+        let a=id-1
+        state[a].quantity++
+        const Filtered = state.filter((el) => {
             return el.id === id;
         })
 
         // тимлидушка говорит как надо сделать, чтобы массив сюда падал. как в баскете примере let b = [...new Set(props.basket)]
 
         setbasket([...basket, ...Filtered])
-
-        console.log(basket)
+        console.log(state)
     }
 
     // переход с задержкой
@@ -80,7 +97,8 @@ function MainComponent() {
 
     // удалить 
     const deleteminus = (id) => {
-        catalog[id].quantity--
+        let c=id-1
+        state[c].quantity--
         let a = basket
         for (let i = a.length; i--;) {
             if (a[i].id === id) {
@@ -93,8 +111,9 @@ function MainComponent() {
 
     // прибавить в корзине
     const deletplus = (id) => {
-        catalog[id].quantity++
-        const Filtered = catalog.filter((el) => {
+        let c=id-1
+        state[c].quantity++
+        const Filtered = state.filter((el) => {
             return el.id === id;
         })
         setbasket([...basket, ...Filtered])
@@ -148,7 +167,6 @@ function MainComponent() {
                         return (
                             <div key={item.id} className='mb-2 carts justify-content-center' >
                                 <img onClick={() => handleShow(item.id)} src={item.image} className=" cardstyle cursor  border  border-5 border-white" alt="..." />
-                                {/* <h5 className="bg-dark bg-opacity-75 text-white ">{item.name}</h5> */}
                                 <div className=' sas  bg-dark bg-opacity-75  d-flex flex-column  justify-content-center align-items-center '>
                                     <div className='border border-white text-white  bg-dark boxbutton text-center pt-2' onClick={() => addtoBasket(item.id)}>
                                         <p className="font-weight-bold">  <SlBasket /> Добавить в корзину</p>
