@@ -104,12 +104,12 @@ function MainComponent() {
             return el.id !== id;
         })
 
-       state2.forEach((el) => {
+        state2.forEach((el) => {
             if (el.id == id)
-               el.quantity = 0
+                el.quantity = 0
         })
 
-      console.log(state2)
+        console.log(state2)
         setbasket(Filtered)
     };
 
@@ -136,17 +136,6 @@ function MainComponent() {
         })
         setbasket([...basket, ...Filtered])
     };
-
-    // прибавить в корзине
-    // const getNewlist = (id) => {
-    //     let c = id - 1
-    //     state[c].quantity++
-    //     const Filtered = state.filter((el) => {
-    //         return el.id === id;
-    //     })
-    //     setbasket([...basket, ...Filtered])
-    // };
-
 
     // отображает фильтрацию по группам
     const findItemsByIdAndRefreshState = (id) => {
@@ -179,6 +168,23 @@ function MainComponent() {
 
     }
 
+    function handleClick2() {
+        fetch('https://flowers.birb.pro/api/items')
+            .then((response) => response.json())
+            .then((json) => {
+                setState(json.data)
+            })
+    }
+
+    function sortByprice(inputsmax, inputsmin) {
+         fetch('https://flowers.birb.pro/api/items?minMax='+inputsmin+'-'+inputsmax)
+         .then((response) => response.json())
+         .then((json) => {
+          console.log(json)
+        })
+      
+    }
+
 
     return (
         <div className="App">
@@ -187,17 +193,16 @@ function MainComponent() {
                 <span className='forspan'> Bukettini - лучший подарок человеку, у которого есть все! </span>
                 <div className="px-5 py-3">
                     <button onClick={handleClick} className='transformtext '><span>Обратная связь</span></button>
-                    {/* <button onClick={FilterdBasket} className='transformtext mx-5'><span>Сортировать по цене</span></button>
+                    <button onClick={FilterdBasket} className='transformtext mx-5'><span>Сортировать по цене</span></button>
                     <div className={Filterbasket ? "baskethide" : " "} >
 
-
-
-
+                        <label for="cheese">от</label>
                         <input type="text" value={inputsmin} onChange={(e) => setInputsmin(e.target.value)} />
+                        
+                        <label for="cheese">до</label>
                         <input type="text" value={inputsmax} onChange={(e) => setInputsmax(e.target.value)} />
-                        <button className=' mx-5'><span>Сортировать </span></button>
-
-                    </div> */}
+                        <button onClick={() => sortByprice(inputsmax, inputsmin)} className=' mx-5'><span>Сортировать </span></button>
+                    </div>
 
                 </div>
                 <div className='basket'>
