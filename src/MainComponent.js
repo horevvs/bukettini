@@ -20,7 +20,7 @@ function MainComponent() {
     const [state, setState] = useState([]);
     const [state2, setState2] = useState([]);
     const [groups, setGroups] = useState([]);
-  
+
     const [Filterbasket, setFilterbasket] = useState(true);
     const [inputsmin, setInputsmin] = useState([])
     const [inputsmax, setInputsmax] = useState([])
@@ -103,6 +103,13 @@ function MainComponent() {
         const Filtered = basket.filter((el) => {
             return el.id !== id;
         })
+
+       state2.forEach((el) => {
+            if (el.id == id)
+               el.quantity = 0
+        })
+
+      console.log(state2)
         setbasket(Filtered)
     };
 
