@@ -177,12 +177,14 @@ function MainComponent() {
     }
 
     function sortByprice(inputsmax, inputsmin) {
-         fetch('https://flowers.birb.pro/api/items?minMax='+inputsmin+'-'+inputsmax)
-         .then((response) => response.json())
-         .then((json) => {
-          console.log(json)
-        })
-      
+        fetch('https://flowers.birb.pro/api/items?minMax=' + inputsmin + '-' + inputsmax)
+            .then((response) => response.json())
+            .then((json) => {
+                console.log(json)
+                setState(json.data)
+            })
+            FilterdBasket()
+
     }
 
 
@@ -195,15 +197,12 @@ function MainComponent() {
                     <button onClick={handleClick} className='transformtext '><span>Обратная связь</span></button>
                     <button onClick={FilterdBasket} className='transformtext mx-5'><span>Сортировать по цене</span></button>
                     <div className={Filterbasket ? "baskethide" : " "} >
-
                         <label for="cheese">от</label>
                         <input type="text" value={inputsmin} onChange={(e) => setInputsmin(e.target.value)} />
-                        
                         <label for="cheese">до</label>
                         <input type="text" value={inputsmax} onChange={(e) => setInputsmax(e.target.value)} />
                         <button onClick={() => sortByprice(inputsmax, inputsmin)} className=' mx-5'><span>Сортировать </span></button>
                     </div>
-
                 </div>
                 <div className='basket'>
 
