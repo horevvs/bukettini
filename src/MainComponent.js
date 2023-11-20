@@ -14,20 +14,30 @@ import catalog from "./catalog.json";
 import Basket from './components/Basket';
 import { useNavigate } from 'react-router-dom';
 
+
+
 function MainComponent() {
     const [state, setState] = useState([]);
+    const [state2, setState2] = useState([]);
     const [groups, setGroups] = useState([]);
-
-
-
+  
+    const [Filterbasket, setFilterbasket] = useState(true);
+    const [inputsmin, setInputsmin] = useState([])
+    const [inputsmax, setInputsmax] = useState([])
 
     useEffect(() => {
         fetch('https://flowers.birb.pro/api/items')
             .then((response) => response.json())
             .then((json) => {
-                setState(json.data)
-            });
-
+                setState(json.data);
+                setState2(json.data)
+            }).then(
+                fetch('https://flowers.birb.pro/api/groups')
+                    .then((response) => response.json())
+                    .then((json) => {
+                        setGroups(json.data)
+                    })
+            )
 
     }, [])
 
@@ -52,20 +62,21 @@ function MainComponent() {
         setShow(show2)
         setShow(false)
     }
+    // j откры закры корзину для фильтрации
+    const FilterdBasket = () => {
+        setFilterbasket(!Filterbasket)
+    }
 
     // добавление в корзину
     const addtoBasket = (id) => {
-
-        let a=id-1
-        state[a].quantity++
-        const Filtered = state.filter((el) => {
+        let a = id - 1
+        state2[a].quantity++
+        const Filtered = state2.filter((el) => {
             return el.id === id;
         })
-
         // тимлидушка говорит как надо сделать, чтобы массив сюда падал. как в баскете примере let b = [...new Set(props.basket)]
-
         setbasket([...basket, ...Filtered])
-        console.log(state)
+
     }
 
     // переход с задержкой
@@ -97,8 +108,8 @@ function MainComponent() {
 
     // удалить 
     const deleteminus = (id) => {
-        let c=id-1
-        state[c].quantity--
+        let c = id - 1
+        state2[c].quantity--
         let a = basket
         for (let i = a.length; i--;) {
             if (a[i].id === id) {
@@ -111,13 +122,55 @@ function MainComponent() {
 
     // прибавить в корзине
     const deletplus = (id) => {
-        let c=id-1
-        state[c].quantity++
-        const Filtered = state.filter((el) => {
+        let c = id - 1
+        state2[c].quantity++
+        const Filtered = state2.filter((el) => {
             return el.id === id;
         })
         setbasket([...basket, ...Filtered])
     };
+
+    // прибавить в корзине
+    // const getNewlist = (id) => {
+    //     let c = id - 1
+    //     state[c].quantity++
+    //     const Filtered = state.filter((el) => {
+    //         return el.id === id;
+    //     })
+    //     setbasket([...basket, ...Filtered])
+    // };
+
+
+    // отображает фильтрацию по группам
+    const findItemsByIdAndRefreshState = (id) => {
+
+        fetch('https://flowers.birb.pro/api/items?group_id=' + id)
+            .then((response) => response.json())
+            .then((json) => {
+
+                setState(json.data)
+                console.log(state2)
+                //     let a = json.data[1].category
+                //     let ac = state[id].category
+                //     // console.log(a )
+                //     const Filtered = state.filter((el) => {
+                //         return el.category === a;
+                //     })
+                //  setState(Filtered)
+                //     console.log(Filtered)
+            })
+    }
+
+    function handleClick2() {
+        fetch('https://flowers.birb.pro/api/items')
+            .then((response) => response.json())
+            .then((json) => {
+                setState(json.data)
+
+            })
+
+
+    }
 
 
     return (
@@ -127,6 +180,18 @@ function MainComponent() {
                 <span className='forspan'> Bukettini - лучший подарок человеку, у которого есть все! </span>
                 <div className="px-5 py-3">
                     <button onClick={handleClick} className='transformtext '><span>Обратная связь</span></button>
+                    {/* <button onClick={FilterdBasket} className='transformtext mx-5'><span>Сортировать по цене</span></button>
+                    <div className={Filterbasket ? "baskethide" : " "} >
+
+
+
+
+                        <input type="text" value={inputsmin} onChange={(e) => setInputsmin(e.target.value)} />
+                        <input type="text" value={inputsmax} onChange={(e) => setInputsmax(e.target.value)} />
+                        <button className=' mx-5'><span>Сортировать </span></button>
+
+                    </div> */}
+
                 </div>
                 <div className='basket'>
 
@@ -142,25 +207,20 @@ function MainComponent() {
             </div>
 
             <div className='mainbackground   '>
-                <div className='d-flex justify-content-center '>
-                    <div className='d-flex  flex-wrap fustify justify-content-center'>
-                        <div className=" px-5 py-3">
-                            <button className='transformtext '> <span>Мужское</span></button>
-                        </div>
-                        <div className=" px-5 py-3 px-2 ">
-                            <button className='transformtext '> <span>Женское</span></button>
-                        </div>
-                        <div className=" px-5 py-3 px-2 ">
-                            <button className='transformtext '> <span>Для учителя</span></button>
-                        </div>
-                        <div className=" px-5 py-3">
-                            <button className='transformtext '> <span>Товар в наличии</span></button>
-                        </div>
-                        {/* <div className="px-5 py-3">
-                            <button onClick={handleClick} className='transformtext '><span>Обратная связь</span></button>
-                        </div> */}
-                    </div>
+
+                <div className='d-flex justify-content-around  '>
+                    {groups.map((item) => {
+                        return (
+                            <div key={item.id} className='mb-2 carts ' >
+                                <div className=" px-5 py-3">
+                                    <button onClick={() => findItemsByIdAndRefreshState(item.id)} className='transformtext '> <span>   {item.name}</span></button>
+                                </div>
+                            </div>
+                        )
+                    })}
+                    <button onClick={handleClick2} className='transformtext mt-3 '> <span>   Весь список</span></button>
                 </div>
+
 
                 <div className='d-flex  flex-wrap scroll justify-content-around  '>
                     {state.map((item) => {
