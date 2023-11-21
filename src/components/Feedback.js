@@ -33,18 +33,19 @@ function Feedback() {
         let object = {
             textmessage: `${inputs}`,
         }
-        let resultForfetch = JSON.stringify(object)
 
-        alert(resultForfetch)
 
-        // let url = `https://`
-        // fetch(url, {
-        //     method: 'PUT',
-        //     body: resultForfetch,
-        //     headers: {
-        //         'Content-type': 'application/json; charset=UTF-8',
-        //     }
-        // })
+        fetch('https://flowers.birb.pro/api/ajax/feedback',
+            {
+                method: 'POST',
+                body: object,
+                headers: { 'Content-type': 'application/json; charset=UTF-8', },
+            }
+        ).then(response => console.log(response.status))
+
+
+
+
     };
 
 
@@ -52,48 +53,32 @@ function Feedback() {
         <div className="App">
 
             {loading ? (
-                <div className='bodyloader '><span className="loader">  <img src={MainPageLogotip} width='300px' height='300px' alt='' />    </span>
+                <div className='bodyloader '><span className="loader">  <img src={MainPageLogotip} width='100px' height='100px' alt='' />    </span>
                 </div>
             ) : (<div>
                 <div className="header d-flex  justify-content-around">
-                    <button onClick={handleClick} className='transformtext  mt-4'><span>Главное меню</span></button>
-                    <span className='forspan '> Bukettini - лучший подарок человеку, у которого есть все! </span>
+                    <button onClick={handleClick} className='transformtext mx-2  mt-4'><span>Главное меню</span></button>
+                    <span className='mt-4  text-center fs-3 d-none  d-sm-block'> Bouquet of food  - лучший подарок человеку, у которого есть все! </span>
+                    {/* <span className='forspan fs-2 '> Bukettini - лучший подарок человеку, у которого есть все! </span> */}
                     {/* <a href="https://wtsapp.online/89138719229"> написать в ватсап</a> */}
                 </div>
 
 
-                <div className='mainbackground  d-flex justify-content-center pt-5   '>
-                    <div className='yandex d-none d-sm-block mx-5 py-2 border border-4 border-white'>
-                        <p className='h5 text-white m-3 '> <BsTelephoneFill className='h5 text-white' /> +7-913-855-58-07. </p>
-                        <p className='h5 text-white m-3'>  ул. Алтайская д. 20, ​1 этаж. <br />Вход со стороны  Красноамейской. </p>
-                        <p className='h5 text-white m-3'>   Ежедневно с 10:00 до 18:00. </p>
-
-                        <p className='h5 text-white m-3 mt-5'>  Написать нам </p>
-
-
+                <div className='mainbackground  d-flex  flex-column align-items-center p-2  '>
+                    <div className='yandex  mx-5 py-3 border border-4 border-white'>
+                        <p className='h5 text-white m-3 '> <BsTelephoneFill className='h5 text-white' /> +7-123-456-78-90. </p>
+                        <p className='h5 text-white m-3'> ул.Ленина д.1, ​1 этаж. <br /> Вход со стороны   улицы. </p>
+                        <p className='h5 text-white m-3'> Ежедневно с 10:00 до 18:00. </p>
+                        <p className='h5 text-white m-3 '> Написать нам </p>
                         <div class="p-2">
                             <form >
-                                <textarea class="form-control " id="exampleFormControlTextarea1" rows="3" onChange={(e) => setInputs(e.target.value)}></textarea>
-                                <input type="submit" class="btn btn-light mt-3" value="Отправить" onClick={sendmessage} />
+                                <textarea class="form-control " id="exampleFormControlTextarea1"  placeholder='пишите все, что думаете' onChange={(e) => setInputs(e.target.value)}></textarea>
+                                <input type="" class="btn btn-light mt-3" value="Отправить" onClick={sendmessage} />
                             </form>
                         </div>
                     </div>
 
-                    <YMaps  >
-                        <Map
-                            defaultState={{
-                                center: [56.481399, 84.966864],
-                                zoom: 16,
-                                controls: [],
-                            }}
-                            width='45%'
-                            height='50%'                        >
-                            <div className='h5 text-white '> Мы здесь </div>
-                            <ZoomControl options={{ float: "right" }} />
-                            <Placemark geometry={[56.481399, 84.966864]} />
-                            <FullscreenControl />
-                        </Map>
-                    </YMaps>
+                    <iframe className='p-2'  src="https://yandex.ru/map-widget/v1/?um=constructor%3A7faf9d2abfa277971360ea76124a97e91477a93bdc00385c1d8856382d2359bf&amp;source=constructor" width="100%" height="400" frameborder="0"></iframe>
                 </div>
 
 
