@@ -18,6 +18,8 @@ function MainComponent() {
     const [Filterbasket, setFilterbasket] = useState(true);
     const [inputsmin, setInputsmin] = useState([])
     const [inputsmax, setInputsmax] = useState([])
+    const [xid, setXid] = useState([0])
+
 
     //   делаем запрос к апи, получаем два рута один рендерит список второй категории
     useEffect(() => {
@@ -33,6 +35,7 @@ function MainComponent() {
                         setGroups(json.data)
                     })
             )
+
     }, [])
 
 
@@ -55,6 +58,7 @@ function MainComponent() {
     }
     //  открыть/ закрыть корзину для фильтрации
     const FilterdBasket = () => {
+
         setFilterbasket(!Filterbasket)
     }
 
@@ -129,10 +133,12 @@ function MainComponent() {
             .then((response) => response.json())
             .then((json) => {
                 setState(json.data)
+                setXid(id)
             })
+
     }
 
-    // отображение рутов по группам
+    // отображение вернуть список
     function handleClick2() {
         fetch('https://flowers.birb.pro/api/items')
             .then((response) => response.json())
@@ -143,11 +149,33 @@ function MainComponent() {
 
     // сортировка по цене
     function sortByprice(inputsmax, inputsmin) {
-        fetch('https://flowers.birb.pro/api/items?minMax=' + inputsmin + '-' + inputsmax)
-            .then((response) => response.json())
-            .then((json) => {
-                setState(json.data)
-            })
+        // console.log(xid)
+
+        // fetch('https://flowers.birb.pro/api/items?minMax=' + inputsmin + '-' + inputsmax)
+        //         .then((response) => response.json())
+        //         .then((json) => {
+        //             setState(json.data)
+        //         })
+
+        if (xid == 0) {
+            fetch('https://flowers.birb.pro/api/items?minMax=' + inputsmin + '-' + inputsmax)
+                .then((response) => response.json())
+                .then((json) => {
+                    setState(json.data)
+                })
+        }
+
+        else {
+            alert(xid)
+            fetch('https://flowers.birb.pro/api/items?group_id=' + xid + '&minMax' + inputsmin + '-' + inputsmax)
+                .then((response) => response.json())
+                .then((json) => {
+                    setState(json.data)
+                })
+
+        //     // console.log('https://flowers.birb.pro/api/items?group_id=' + xid + '&minMax' + inputsmin + '-' + inputsmax)
+        }
+
         FilterdBasket()
     }
 
@@ -161,16 +189,12 @@ function MainComponent() {
 
 
     return (
-
-
-
         <div className="App">
-
             {loading ? (
-                <div className='bodyloader '><span className="loader">  <img src={MainPageLogotip} width='100px' height='100px' alt='' />    </span>
+                <div className='bodyloader'><span className="loader">  <img src={MainPageLogotip} width='100px' height='100px' alt='' />    </span>
                 </div>
             ) : (<>
-                <div className="header d-flex   .d-md-none  justify-content-between">
+                <div className="header d-flex  justify-content-between">
                     <img src={MainPageLogotip} width='80px' height='80px' className='mt-3 mx-3 ' alt='' />
                     <span className='mt-4  text-center totalAmount fs-3 d-none  d-sm-block'> Bouquet of food  - лучший подарок человеку, у которого есть все! </span>
 
@@ -191,7 +215,7 @@ function MainComponent() {
                         <button onClick={handleClick2} className='transformtext mt-2'> <span> Весь список</span></button>
                         {groups.map((item) => {
                             return (
-                                <div key={item.id} className=' carts  mt-2 ' >
+                                <div key={item.id} className='carts  mt-2' >
                                     <div className=" ">
                                         <button onClick={() => findItemsByIdAndRefreshState(item.id)} className='transformtext '> <span>   {item.name}</span></button>
                                     </div>
@@ -218,7 +242,7 @@ function MainComponent() {
                                             <p className="font-weight-bold">  <SlBasket /> Добавить в корзину</p>
                                         </div>
                                         <div className=' border border-white text-dark   bg-white boxbutton text-center mt-5 pt-2' onClick={() => handleShow(item.id)}>
-                                            <p className="font-weight-bold"> <BsSearch className='mx-2'/> Просмотр</p>
+                                            <p className="font-weight-bold"> <BsSearch className='mx-2' /> Просмотр</p>
                                         </div>
                                     </div>
                                     <Modal show={show[item.id]}>
