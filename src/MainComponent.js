@@ -1,30 +1,25 @@
 import './App.css';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import MainPageLogotip from './images/MainPageLogotip.png';
-
 import { BsSearch } from "react-icons/bs";
 import { SlBasket } from "react-icons/sl";
 import { SlSocialVkontakte } from "react-icons/sl";
 import { BsWhatsapp } from "react-icons/bs";
-
 import Modal from 'react-bootstrap/Modal';
-import catalog from "./catalog.json";
 import Basket from './components/Basket';
-import { useNavigate } from 'react-router-dom';
-
 
 
 function MainComponent() {
     const [state, setState] = useState([]);
     const [state2, setState2] = useState([]);
     const [groups, setGroups] = useState([]);
-
     const [Filterbasket, setFilterbasket] = useState(true);
     const [inputsmin, setInputsmin] = useState([])
     const [inputsmax, setInputsmax] = useState([])
 
+    //   делаем запрос к апи, получаем два рута один рендерит список второй категории
     useEffect(() => {
         fetch('https://flowers.birb.pro/api/items')
             .then((response) => response.json())
@@ -38,31 +33,27 @@ function MainComponent() {
                         setGroups(json.data)
                     })
             )
-
     }, [])
-
-
 
 
     //  создаем хук чтобы организовать навигацию
     const navigate = useNavigate();
-
-
     const [baskethide, setbaskethide] = useState(true);
     const [basket, setbasket] = useState([]);
 
+    //   создаем массив в котором будем менять состояние для модального окна
     let massiv = Array(state.length)
     massiv.fill(false)
+
     const [show, setShow] = useState(massiv);
     const [show2, setShow2] = useState([]);
-
 
     const handleClose = (id) => {
         show2[id] = false
         setShow(show2)
         setShow(false)
     }
-    // j откры закры корзину для фильтрации
+    //  открыть/ закрыть корзину для фильтрации
     const FilterdBasket = () => {
         setFilterbasket(!Filterbasket)
     }
@@ -76,7 +67,6 @@ function MainComponent() {
         })
         // тимлидушка говорит как надо сделать, чтобы массив сюда падал. как в баскете примере let b = [...new Set(props.basket)]
         setbasket([...basket, ...Filtered])
-
     }
 
     // переход с задержкой
@@ -85,7 +75,6 @@ function MainComponent() {
             navigate('/2');
         }, 500);
     }
-
 
     // показать модальное окно
     const handleShow = (id) => {
@@ -103,13 +92,10 @@ function MainComponent() {
         const Filtered = basket.filter((el) => {
             return el.id !== id;
         })
-
         state2.forEach((el) => {
             if (el.id == id)
                 el.quantity = 0
         })
-
-        console.log(state2)
         setbasket(Filtered)
     };
 
@@ -139,35 +125,14 @@ function MainComponent() {
 
     // отображает фильтрацию по группам
     const findItemsByIdAndRefreshState = (id) => {
-
         fetch('https://flowers.birb.pro/api/items?group_id=' + id)
             .then((response) => response.json())
             .then((json) => {
-
                 setState(json.data)
-                console.log(state2)
-                //     let a = json.data[1].category
-                //     let ac = state[id].category
-                //     // console.log(a )
-                //     const Filtered = state.filter((el) => {
-                //         return el.category === a;
-                //     })
-                //  setState(Filtered)
-                //     console.log(Filtered)
             })
     }
 
-    function handleClick2() {
-        fetch('https://flowers.birb.pro/api/items')
-            .then((response) => response.json())
-            .then((json) => {
-                setState(json.data)
-
-            })
-
-
-    }
-
+    // отображение рутов по группам
     function handleClick2() {
         fetch('https://flowers.birb.pro/api/items')
             .then((response) => response.json())
@@ -176,41 +141,28 @@ function MainComponent() {
             })
     }
 
+    // сортировка по цене
     function sortByprice(inputsmax, inputsmin) {
         fetch('https://flowers.birb.pro/api/items?minMax=' + inputsmin + '-' + inputsmax)
             .then((response) => response.json())
             .then((json) => {
-                console.log(json)
                 setState(json.data)
             })
-            FilterdBasket()
-
+        FilterdBasket()
     }
 
 
     return (
         <div className="App">
-            <div className="header d-flex  justify-content-between">
-                <img src={MainPageLogotip} width='80px' height='80px' className='animation' alt='' />
-                <span className='forspan'> Bukettini - лучший подарок человеку, у которого есть все! </span>
-                <div className="px-5 py-3">
-                    <button onClick={handleClick} className='transformtext '><span>Обратная связь</span></button>
-                    <button onClick={FilterdBasket} className='transformtext mx-5'><span>Сортировать по цене</span></button>
-                    <div className={Filterbasket ? "baskethide" : " "} >
-                        <label for="cheese">от</label>
-                        <input type="text" value={inputsmin} onChange={(e) => setInputsmin(e.target.value)} />
-                        <label for="cheese">до</label>
-                        <input type="text" value={inputsmax} onChange={(e) => setInputsmax(e.target.value)} />
-                        <button onClick={() => sortByprice(inputsmax, inputsmin)} className=' mx-5'><span>Сортировать </span></button>
-                    </div>
-                </div>
+            <div className="header d-flex   .d-md-none  justify-content-between">
+                <img src={MainPageLogotip} width='80px' height='80px' className='mt-3 mx-3 ' alt='' />
+                <span className='mt-4  text-center fs-3 d-none  d-sm-block'> Bouquet of food  - лучший подарок человеку, у которого есть все! </span>
+               
                 <div className='basket'>
-
                     <div> <SlBasket className='mx-4 my-5  ' />
                         <span className=' mx-3  '>
                             {basket.length === 0 ? (null) : (<div onClick={handleClosebasket} className='digital text-dark bg-white'>  {basket.length} </div>)}</span>
                     </div>
-
                     <div className={baskethide ? "baskethide" : " "}  >
                         <Basket basket={basket} handleClosebasket={handleClosebasket} deleteFrombasket={deleteFrombasket} deleteminus={deleteminus} deletplus={deletplus} />
                     </div>
@@ -218,20 +170,22 @@ function MainComponent() {
             </div>
 
             <div className='mainbackground   '>
-
-                <div className='d-flex justify-content-around  '>
+                <div className='d-flex flex-wrap justify-content-around  p-3 '>
+                
+                    <button onClick={handleClick2} className='transformtext mt-2'> <span> Весь список</span></button>
                     {groups.map((item) => {
                         return (
-                            <div key={item.id} className='mb-2 carts ' >
-                                <div className=" px-5 py-3">
+                            <div key={item.id} className=' carts  mt-2 ' >
+                                <div className=" ">
                                     <button onClick={() => findItemsByIdAndRefreshState(item.id)} className='transformtext '> <span>   {item.name}</span></button>
                                 </div>
                             </div>
                         )
                     })}
-                    <button onClick={handleClick2} className='transformtext mt-3 '> <span>   Весь список</span></button>
-                </div>
 
+                    <button onClick={FilterdBasket} className='transformtext  mt-2  '><span>Сортировать по цене</span></button>
+                    <button onClick={handleClick} className='transformtext  mt-2 '><span>Обратная связь</span></button>
+                </div>
 
                 <div className='d-flex  flex-wrap scroll justify-content-around  '>
                     {state.map((item) => {
@@ -248,10 +202,11 @@ function MainComponent() {
                                 </div>
                                 <Modal show={show[item.id]}>
                                     <Modal.Header className='bg-dark bg-opacity-25' onClick={() => handleClose(item.id)} closeButton>
+                                    <p className='mt-2'> {item.name} </p>
                                     </Modal.Header>
                                     <img src={item.image} className="img-fluid cursor border  border-5 border-white" alt="..." />
                                     <Modal.Footer className='bg-dark bg-opacity-25'>
-                                        <p> Название - {item.name} Стоимость- {item.price} рублей</p>
+                                        <p> Стоимость- {item.price} рублей</p>
                                     </Modal.Footer>
                                 </Modal>
                             </div>
@@ -261,10 +216,10 @@ function MainComponent() {
             </div>
 
             <div className="footer d-flex justify-content-between">
-                <div> Информация в футере </div>
+
                 <div className=" d-flex justify-content-between mx-4   ">
-                    <a className='px-3 text-white  ' href="https://vk.com/bukettini" > <SlSocialVkontakte /></a>
-                    <a className='px-3 text-white ' href="https://wa.me/89138208610" > <BsWhatsapp /></a>
+                    <a className='px-3 text-white  ' href="" > <SlSocialVkontakte /></a>
+                    <a className='px-3 text-white ' href="" > <BsWhatsapp /></a>
                 </div>
             </div>
         </div>
