@@ -151,9 +151,25 @@ function MainComponent() {
         FilterdBasket()
     }
 
+    const [loading, setLoading] = useState(false);
+    useEffect(() => {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+        }, 500);
+    }, []);
+
 
     return (
+  
+          
+        
         <div className="App">
+
+{loading ? (
+                <div className='bodyloader '><span className="loader">  <img src={MainPageLogotip} width='100px' height='100px' alt='' />    </span>
+                </div>
+            ) : ( <>  
             <div className="header d-flex   .d-md-none  justify-content-between">
                 <img src={MainPageLogotip} width='80px' height='80px' className='mt-3 mx-3 ' alt='' />
                 <span className='mt-4  text-center fs-3 d-none  d-sm-block'> Bouquet of food  - лучший подарок человеку, у которого есть все! </span>
@@ -222,6 +238,7 @@ function MainComponent() {
                     <a className='px-3 text-white ' href="" > <BsWhatsapp /></a>
                 </div>
             </div>
+            </>)}
         </div>
     )
 }
