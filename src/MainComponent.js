@@ -172,7 +172,7 @@ function MainComponent() {
             ) : (<>
                 <div className="header d-flex   .d-md-none  justify-content-between">
                     <img src={MainPageLogotip} width='80px' height='80px' className='mt-3 mx-3 ' alt='' />
-                    <span className='mt-4  text-center fs-3 d-none  d-sm-block'> Bouquet of food  - лучший подарок человеку, у которого есть все! </span>
+                    <span className='mt-4  text-center totalAmount fs-3 d-none  d-sm-block'> Bouquet of food  - лучший подарок человеку, у которого есть все! </span>
 
                     <div className='basket'>
                         <div> <SlBasket className='mx-4 my-5  ' />
@@ -211,7 +211,7 @@ function MainComponent() {
                     <div className='d-flex  flex-wrap scroll justify-content-around  '>
                         {state.map((item) => {
                             return (
-                                <div key={item.id} className='mb-2 carts flex-wrap justify-content-center' >
+                                <div key={item.id} className='mb-2 carts justify-content-center' >
                                     <img onClick={() => handleShow(item.id)} src={item.image} className=" cardstyle cursor  border  border-5 border-white" alt="..." />
                                     <div className=' sas  bg-dark bg-opacity-75  d-flex flex-column  justify-content-center align-items-center '>
                                         <div className='border border-white text-white  bg-dark boxbutton text-center pt-2' onClick={() => addtoBasket(item.id)}>

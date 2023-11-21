@@ -1,5 +1,5 @@
 
-
+import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ImCross } from "react-icons/im";
 import { BsFillTrashFill } from "react-icons/bs";
@@ -56,21 +56,21 @@ function Basket(props) {
                 method: 'POST',
                 body: {
                     "items": [
-                      {
-                        "id": 5,
-                        "quantity": 2
-                      },
-                      {
-                        "id": 4,
-                        "quantity": 2
-                      }
+                        {
+                            "id": 5,
+                            "quantity": 2
+                        },
+                        {
+                            "id": 4,
+                            "quantity": 2
+                        }
                     ],
                     "form": {
-                      "name": "печкин",
-                      "address": "на деревню дедушке",
-                      "phone": "12-34-56-78"
+                        "name": "печкин",
+                        "address": "на деревню дедушке",
+                        "phone": "12-34-56-78"
                     }
-                  }
+                }
                 ,
                 headers: { 'Content-type': 'application/json; charset=UTF-8', }
             }
@@ -80,8 +80,8 @@ function Basket(props) {
     return (
         <div className="basketDisplay scrollbasket">
             <div className='d-flex justify-content-between  header'>
-            <button className='transformtext mx-4 mt-4' onClick={openmodalmenu} > <span> Оформить заказ</span></button>
-                <div className='mx-4 mt-4 '>Итого  {totalAmount}  рублей</div>
+                <button className='transformtext mx-4 mt-4' onClick={openmodalmenu} > <span> Оформить заказ</span></button>
+                <div className='mx-4 mt-4  totalAmount '>Итого  {totalAmount}  рублей</div>
                 <ImCross className='mx-5 mt-4 cursor' onClick={props.handleClosebasket} />
             </div>
 
@@ -107,9 +107,9 @@ function Basket(props) {
                 )
             })}
 
-           
 
-            <Modal show={show}>  
+
+            <Modal show={show}>
                 <Modal.Header className='bg-dark bg-opacity-75 fs-3 text-white font-weight-bold' onClick={openmodalmenu} closeButton>Отправить  заявку </Modal.Header>
                 <Modal.Body>
                     <>
@@ -120,7 +120,7 @@ function Basket(props) {
                                         <div className=''> {item.name}   </div>
                                         <div >количество  - {item.quantity} шт.</div>
                                     </div>
-                                  
+
                                 </div>
                             )
                         })}
@@ -138,15 +138,12 @@ function Basket(props) {
                                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={(e) => setphone(e.target.value)} />
                             </div>
                             <button class="btn btn-dark" onClick={() => sendmessage(totalAmount)} >Отправить заявку</button>
-                   
-
-
                         </form>
                     </>
                 </Modal.Body>
                 <Modal.Footer className='bg-dark bg-opacity-50'>
-                    <div  className='fs-3 text-white font-weight-bold'>Итого: {totalAmount}  руб.</div>
-                    
+                    <div className='fs-3 text-white font-weight-bold'>Итого: {totalAmount}  руб.</div>
+
                 </Modal.Footer>
             </Modal>
         </div>

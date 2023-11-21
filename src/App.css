@@ -12,6 +12,14 @@
   margin: 0;
 }
 
+.totalAmount{
+  font-size: 35px;
+  @media (max-width: 770px) {
+    
+    font-size: 15px;
+  }
+}
+
 
 
 .yandex{

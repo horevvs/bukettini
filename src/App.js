@@ -24,13 +24,7 @@ function App() {
       ) : (
         <BrowserRouter>
           <Routes>
-
-
-            {loading ? (
-              <div className='bodyloader '><span className="loader">  <img src={MainPageLogotip} width='300px' height='300px' alt='' />    </span>
-              </div>
-            ) : (<Route path="*" element={<MainComponent />} />)}
-
+            <Route path="*" element={<MainComponent />} />
             <Route path="/2" element={<Feedback />} />
           </Routes>
         </BrowserRouter>
