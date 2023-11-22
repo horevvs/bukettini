@@ -149,14 +149,6 @@ function MainComponent() {
 
     // сортировка по цене
     function sortByprice(inputsmax, inputsmin) {
-        // console.log(xid)
-
-        // fetch('https://flowers.birb.pro/api/items?minMax=' + inputsmin + '-' + inputsmax)
-        //         .then((response) => response.json())
-        //         .then((json) => {
-        //             setState(json.data)
-        //         })
-
         if (xid == 0) {
             fetch('https://flowers.birb.pro/api/items?minMax=' + inputsmin + '-' + inputsmax)
                 .then((response) => response.json())
@@ -164,18 +156,16 @@ function MainComponent() {
                     setState(json.data)
                 })
         }
-
+        // сортировка по цене если основной xid равен нулю его вставляем в фетч запрос.
         else {
-            alert(xid)
-            fetch('https://flowers.birb.pro/api/items?group_id=' + xid + '&minMax' + inputsmin + '-' + inputsmax)
+            fetch('https://flowers.birb.pro/api/items?group_id=' + xid + '&minMax=' + inputsmin + '-' + inputsmax)
                 .then((response) => response.json())
                 .then((json) => {
                     setState(json.data)
                 })
 
-        //     // console.log('https://flowers.birb.pro/api/items?group_id=' + xid + '&minMax' + inputsmin + '-' + inputsmax)
+            //    console.log('https://flowers.birb.pro/api/items?group_id=' + xid + '&minMax=' + inputsmin + '-' + inputsmax)
         }
-
         FilterdBasket()
     }
 
@@ -227,9 +217,9 @@ function MainComponent() {
                         <button onClick={handleClick} className='transformtext  mt-2'><span>Обратная связь</span></button>
                     </div>
                     <div className={Filterbasket ? "baskethide " : "  d-flex justify-content-center m-2 "} >
-                        <input type="text" value={inputsmin} placeholder='от' class="form-control fs-5  w-25" onChange={(e) => setInputsmin(e.target.value)} />
-                        <input type="text" value={inputsmax} placeholder='до' class="form-control fs-5 mx-2 w-25" onChange={(e) => setInputsmax(e.target.value)} />
-                        <button type="button" onClick={() => sortByprice(inputsmax, inputsmin)} class="btn btn-dark mx-2">Сортировать</button>
+                        <input type="text" value={inputsmin} placeholder='от' className="form-control fs-5  w-25" onChange={(e) => setInputsmin(e.target.value)} />
+                        <input type="text" value={inputsmax} placeholder='до' className="form-control fs-5 mx-2 w-25" onChange={(e) => setInputsmax(e.target.value)} />
+                        <button type="button" onClick={() => sortByprice(inputsmax, inputsmin)} className="btn btn-dark mx-2">Сортировать</button>
                     </div>
 
                     <div className='d-flex  flex-wrap scroll justify-content-around  '>
